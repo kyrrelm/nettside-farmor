@@ -1,45 +1,24 @@
 import React, {CSSProperties} from 'react';
-import Button from "./Button";
-import {useHistory} from 'react-router-dom';
-import bilde2 from './img/BoliganleggArvoll/2boliganleggArvoll.jpeg';
-import bilde3 from './img/BoliganleggArvoll/3boliganleggArvoll.jpeg';
-import bilde4 from './img/BoliganleggArvoll/4boliganleggArvoll.jpeg';
-import bilde5 from './img/BoliganleggArvoll/5boliganleggArvoll.jpeg';
-import bilde6 from './img/BoliganleggArvoll/6boliganleggArvoll.jpeg';
-import bilde7 from './img/BoliganleggArvoll/7boliganleggArvoll.jpeg';
 
 const COLUMNS = 3;
 
 const STANDARD_SPACING = 40;
 
-export default function Album() {
-    const history = useHistory();
-    const images = [bilde2, bilde3, bilde4, bilde5, bilde6, bilde7];
+interface Props {
+    navn: string;
+    imageUrls: string[];
+}
 
+export default function Project({navn, imageUrls}: Props) {
     return (
-        <div
-            style={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-            }}
-        >
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    maxWidth: 935,
-                }}
-            >
-                {renderHeader(history)}
-                {renderImages(images)}
-            </div>
+        <div>
+            {renderHeader(navn)}
+            {renderImages(imageUrls)}
         </div>
     );
 }
 
-function renderHeader(history: any) {
+function renderHeader(navn: string) {
     return (
         <header
             style={{
@@ -49,14 +28,13 @@ function renderHeader(history: any) {
                 marginTop: STANDARD_SPACING,
             }}
         >
-            <Button text={'Forside'} onClick={history.goBack} />
-            <h1>Album name</h1>
+            <h2>{navn}</h2>
             <div />
         </header>
     );
 }
 
-function renderImages(localImageUrls: string[]) {
+function renderImages(imageUrls: string[]) {
     return (
         <div
             style={{
@@ -64,7 +42,7 @@ function renderImages(localImageUrls: string[]) {
                 flexDirection: 'column',
             }}
         >
-            {chunk(localImageUrls, COLUMNS).map((rowUrls) =>
+            {chunk(imageUrls, COLUMNS).map((rowUrls) =>
                 renderRow(rowUrls),
             )}
         </div>
