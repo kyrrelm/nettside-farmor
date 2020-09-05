@@ -9,7 +9,7 @@ import arvoll6 from '../img/BoliganleggArvoll/6boliganleggArvoll.jpeg';
 import arvoll7 from '../img/BoliganleggArvoll/7boliganleggArvoll.jpeg';
 import blindern1 from '../img/BarnehageBlindern/1BarnehageBlindern.jpeg';
 import blindern2 from '../img/BarnehageBlindern/2BarnehageBlindern.jpeg';
-import blindern2 from '../img/BoliganleggBestumBakkeveien1/2BarnehageBlindern.jpeg';
+//import blindern2 from '../img/BoliganleggBestumBakkeveien1/2BarnehageBlindern.jpeg';
 
 const COLUMNS = 3;
 
