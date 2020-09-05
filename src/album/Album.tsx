@@ -27,6 +27,24 @@ import boliganleggNordstrand1 from '../img/BoliganleggNordstrand/1BoliganleggNor
 import boliganleggNordstrand2 from '../img/BoliganleggNordstrand/2BoliganleggNordstrand.jpeg';
 import boliganlegg2Nordstrand1 from '../img/BoliganleggNordstrand2/2_1BoliganleggNordstrand.jpeg';
 import boliganlegg2Nordstrand2 from '../img/BoliganleggNordstrand2/2_2BoliganleggNordstrand.jpeg';
+import boliganleggSandaker1 from '../img/BoliganleggSandakerveien/1boliganleggSandaker.jpeg';
+import boliganleggSandaker2 from '../img/BoliganleggSandakerveien/2boliganleggSandaker.jpeg';
+import boliganleggSandaker3 from '../img/BoliganleggSandakerveien/3boliganleggSandaker.jpeg';
+import boliganleggSandaker4 from '../img/BoliganleggSandakerveien/4boliganleggSandaker.jpeg';
+import eneboligBillingstad from '../img/EneboligBillingstad/B13.jpg';
+import eneboligGjettum1 from '../img/EneboligGjettum/1eneboligGjettum.jpeg';
+import eneboligGjettum2 from '../img/EneboligGjettum/2eneboligGjettum.jpeg';
+import eneboligJar1 from '../img/EneboligJar/1EneboligJar.jpeg';
+import eneboligJar2 from '../img/EneboligJar/2EneboligJar.jpeg';
+import eneboligJar3 from '../img/EneboligJar/3EneboligJar.jpeg';
+import eneboligJar4 from '../img/EneboligJar/4EneboligJar.jpeg';
+import eneboligJar5 from '../img/EneboligJar/5EneboligJar.jpeg';
+import enebolig2Jar1 from '../img/EneboligJar2/2_1EneboligJar.jpeg';
+import enebolig2Jar2 from '../img/EneboligJar2/2_2EneboligJar.jpeg';
+import enebolig2Jar3 from '../img/EneboligJar2/2_3EneboligJar.jpeg';
+import enebolig3Jar1 from '../img/EneboligJar3/3_1EneboligJar.jpeg';
+import enebolig3Jar2 from '../img/EneboligJar3/3_2EneboligJar.jpeg';
+import enebolig3Jar3 from '../img/EneboligJar3/3_3EneboligJar.jpeg';
 
 export default function Album() {
     const imagesArvoll = [arvoll2, arvoll3, arvoll4, arvoll5, arvoll6, arvoll7];
@@ -37,6 +55,12 @@ export default function Album() {
     const imagesLilleaker = [boliganleggLilleaker1, boliganleggLilleaker2, boliganleggLilleaker3, boliganleggLilleaker4];
     const imagesNordstrand = [boliganleggNordstrand1, boliganleggNordstrand2];
     const imagesNordstrand2 = [boliganlegg2Nordstrand1, boliganlegg2Nordstrand2];
+    const imagesBoliganleggSandaker = [boliganleggSandaker1, boliganleggSandaker2, boliganleggSandaker3, boliganleggSandaker4];
+    const imagesEneboligBillingstad = [eneboligBillingstad];
+    const imagesEneboligGjettum = [eneboligGjettum1, eneboligGjettum2];
+    const imagesEneboligJar = [eneboligJar1, eneboligJar2, eneboligJar3, eneboligJar4, eneboligJar5];
+    const imagesEneboligJar2 = [enebolig2Jar1, enebolig2Jar2, enebolig2Jar3];
+    const imagesEneboligJar3 = [enebolig3Jar1, enebolig3Jar2, enebolig3Jar3];
 
     return (
         <div
@@ -62,6 +86,12 @@ export default function Album() {
                 <Project navn={'Boliganlegg Lilleaker'} imageUrls={imagesLilleaker} />
                 <Project navn={'Boliganlegg Nordstrand'} imageUrls={imagesNordstrand} />
                 <Project navn={'Boliganlegg Nordstrand 2'} imageUrls={imagesNordstrand2} />
+                <Project navn={'Boliganlegg Sandaker'} imageUrls={imagesBoliganleggSandaker} />
+                <Project navn={'Enebolig Billingstad'} imageUrls={imagesEneboligBillingstad} />
+                <Project navn={'Enebolig Gjettum'} imageUrls={imagesEneboligGjettum} />
+                <Project navn={'Enebolig Jar'} imageUrls={imagesEneboligJar} />
+                <Project navn={'Enebolig Jar 2'} imageUrls={imagesEneboligJar2} />
+                <Project navn={'Enebolig Jar 3'} imageUrls={imagesEneboligJar3} />
             </div>
         </div>
     );
