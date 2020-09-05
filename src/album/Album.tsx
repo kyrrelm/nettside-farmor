@@ -45,6 +45,15 @@ import enebolig2Jar3 from '../img/EneboligJar2/2_3EneboligJar.jpeg';
 import enebolig3Jar1 from '../img/EneboligJar3/3_1EneboligJar.jpeg';
 import enebolig3Jar2 from '../img/EneboligJar3/3_2EneboligJar.jpeg';
 import enebolig3Jar3 from '../img/EneboligJar3/3_3EneboligJar.jpeg';
+import firemannsboligNordberg1 from '../img/FiremannsboligNordberg/1FiremannsboligNordberg.jpeg';
+import firemannsboligNordberg2 from '../img/FiremannsboligNordberg/2FiremannsboligNordberg.jpeg';
+import tomannsboligBlommenholm1 from '../img/TomannsboligBlommenholm/1TomannsboligBlommenholm.jpg';
+import tomannsboligBlommenholm2 from '../img/TomannsboligBlommenholm/2TomannsboligBlommenholm.jpg';
+import tomannsboligSandvika from '../img/TomannsboligSandvika/TomannsboligSandvika.jpg';
+import tomannsboligUllern1 from '../img/TomannsboligUllern/1TomannsboligerUllern.jpeg';
+import tomannsboligUllern2 from '../img/TomannsboligUllern/2TomannsboligerUllern.jpeg';
+import tomannsboligUllern3 from '../img/TomannsboligUllern/3TomannsboligerUllern.jpeg';
+import tomannsboligUllern4 from '../img/TomannsboligUllern/4TomannsboligerUllern.jpeg';
 
 export default function Album() {
     const imagesArvoll = [arvoll2, arvoll3, arvoll4, arvoll5, arvoll6, arvoll7];
@@ -61,6 +70,10 @@ export default function Album() {
     const imagesEneboligJar = [eneboligJar1, eneboligJar2, eneboligJar3, eneboligJar4, eneboligJar5];
     const imagesEneboligJar2 = [enebolig2Jar1, enebolig2Jar2, enebolig2Jar3];
     const imagesEneboligJar3 = [enebolig3Jar1, enebolig3Jar2, enebolig3Jar3];
+    const imagesFiremannsboligNordberg = [firemannsboligNordberg1, firemannsboligNordberg2];
+    const imagesTomannsboligBlommenholm = [tomannsboligBlommenholm1, tomannsboligBlommenholm2];
+    const imagesTomannsboligSandvika = [tomannsboligSandvika];
+    const imagesTomannsboligUllern = [tomannsboligUllern1, tomannsboligUllern2, tomannsboligUllern3, tomannsboligUllern4];
 
     return (
         <div
@@ -92,6 +105,10 @@ export default function Album() {
                 <Project navn={'Enebolig Jar'} imageUrls={imagesEneboligJar} />
                 <Project navn={'Enebolig Jar 2'} imageUrls={imagesEneboligJar2} />
                 <Project navn={'Enebolig Jar 3'} imageUrls={imagesEneboligJar3} />
+                <Project navn={'Firemannsbolig Nordberg'} imageUrls={imagesFiremannsboligNordberg} />
+                <Project navn={'Tomannsbolig Blommenholm'} imageUrls={imagesTomannsboligBlommenholm} />
+                <Project navn={'Tomannsbolig Sandvika'} imageUrls={imagesTomannsboligSandvika} />
+                <Project navn={'Tomannsbolig Ullern'} imageUrls={imagesTomannsboligUllern} />
             </div>
         </div>
     );
