@@ -89,6 +89,9 @@ export default function Album() {
                     display: 'flex',
                     flexDirection: 'column',
                     maxWidth: 935,
+                    marginLeft: 20,
+                    marginRight: 20,
+
                 }}
             >
                 <Project navn={'Boliganlegg Årvoll'} imageUrls={imagesArvoll} />

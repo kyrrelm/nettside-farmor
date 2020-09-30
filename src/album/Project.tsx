@@ -1,8 +1,8 @@
-import React, { CSSProperties } from "react";
+import React, {CSSProperties, useLayoutEffect, useState} from "react";
 
 const COLUMNS = 3;
 
-const STANDARD_SPACING = 40;
+let STANDARD_SPACING = 40;
 
 interface Props {
     navn: string;
@@ -10,6 +10,13 @@ interface Props {
 }
 
 export default function Project({ navn, imageUrls }: Props) {
+    const [width] = useWindowSize();
+    console.log("width", width);
+    if (width < 800) {
+        STANDARD_SPACING = 10;
+    } else {
+        STANDARD_SPACING = 40;
+    }
     return (
         <div>
             {renderHeader(navn)}
@@ -120,4 +127,18 @@ function chunk<T>(array: T[], size: number): T[][] {
         index += size;
     }
     return chunked_arr;
+}
+
+
+function useWindowSize() {
+    const [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return size;
 }
