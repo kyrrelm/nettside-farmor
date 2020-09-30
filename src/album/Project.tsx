@@ -1,4 +1,4 @@
-import React, {CSSProperties} from 'react';
+import React, { CSSProperties } from "react";
 
 const COLUMNS = 3;
 
@@ -9,7 +9,7 @@ interface Props {
     imageUrls: string[];
 }
 
-export default function Project({navn, imageUrls}: Props) {
+export default function Project({ navn, imageUrls }: Props) {
     return (
         <div>
             {renderHeader(navn)}
@@ -22,8 +22,8 @@ function renderHeader(navn: string) {
     return (
         <header
             style={{
-                display: 'flex',
-                justifyContent: 'space-between',
+                display: "flex",
+                justifyContent: "space-between",
                 marginBottom: STANDARD_SPACING,
                 marginTop: STANDARD_SPACING,
             }}
@@ -38,13 +38,11 @@ function renderImages(imageUrls: string[]) {
     return (
         <div
             style={{
-                display: 'flex',
-                flexDirection: 'column',
+                display: "flex",
+                flexDirection: "column",
             }}
         >
-            {chunk(imageUrls, COLUMNS).map((rowUrls) =>
-                renderRow(rowUrls),
-            )}
+            {chunk(imageUrls, COLUMNS).map((rowUrls) => renderRow(rowUrls))}
         </div>
     );
 }
@@ -53,7 +51,7 @@ function renderRow(localImageUrls: string[]) {
     return (
         <div
             style={{
-                display: 'flex',
+                display: "flex",
                 marginBottom: STANDARD_SPACING,
                 marginLeft: -STANDARD_SPACING / 2,
                 marginRight: -STANDARD_SPACING / 2,
@@ -61,30 +59,47 @@ function renderRow(localImageUrls: string[]) {
         >
             {localImageUrls.map((url) => renderImageContainer(url))}
             {[...new Array(COLUMNS - localImageUrls.length)].map(
-                renderImageContainer,
+                renderImageContainer
             )}
         </div>
     );
 }
 
 function renderImageContainer(url?: string) {
+    if (url === undefined) {
+        return (
+            <div
+                style={{
+                    flexBasis: "0%",
+                    flexGrow: 1,
+                    marginLeft: STANDARD_SPACING / 2,
+                    marginRight: STANDARD_SPACING / 2,
+                }}
+            ></div>
+        );
+    }
     return (
         <div
             key={url}
             style={{
-                flexBasis: '0%',
+                flexBasis: "0%",
                 flexGrow: 1,
                 marginLeft: STANDARD_SPACING / 2,
                 marginRight: STANDARD_SPACING / 2,
-                boxShadow: '0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)'
+
             }}
         >
-            <a href={'/fixthis'}>
+            <a href={"/fixthis"}>
                 <div
-                    style={{
-                        maxHeight: 700,
-                        maxWidth: 700,
-                    }}
+                    style={
+                        {
+                            maxHeight: 700,
+                            maxWidth: 700,
+                            lineHeight: 0,
+                            boxShadow:
+                                "0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
+                        }
+                    }
                 >
                     {url && <img alt={url} src={url} style={styles.img} />}
                 </div>
@@ -94,7 +109,7 @@ function renderImageContainer(url?: string) {
 }
 
 const styles: { [name: string]: CSSProperties } = {
-    img: { height: '100%', width: '100%' },
+    img: { height: "100%", width: "100%" },
 };
 
 function chunk<T>(array: T[], size: number): T[][] {
@@ -106,5 +121,3 @@ function chunk<T>(array: T[], size: number): T[][] {
     }
     return chunked_arr;
 }
-
-
