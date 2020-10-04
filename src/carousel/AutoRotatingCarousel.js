@@ -146,10 +146,7 @@ class AutoRotatingCarousel extends Component {
     const {
       children,
       classes,
-      hideArrows,
-      interval,
       mobile,
-      ModalProps,
       open,
       onClose,
     } = this.props
@@ -161,7 +158,6 @@ class AutoRotatingCarousel extends Component {
         className={classes.carousel}
         containerStyle={{ height: '100%' }}
         index={this.state.slideIndex}
-        interval={interval}
         onChangeIndex={this.handleChange}
         slideClassName={classes.slide}
       >
@@ -171,14 +167,11 @@ class AutoRotatingCarousel extends Component {
 
     return (
       <Modal
-        className={classNames(classes.root, {
-          [classes.rootMobile]: mobile
-        })}
+        className={classNames(classes.root)}
         open={open}
         onClose={onClose}
         BackdropComponent={Backdrop}
-        BackdropProps={ModalProps ? { transitionDuration, ...ModalProps.BackdropProps } : { transitionDuration }}
-        {...ModalProps}
+        BackdropProps={{ transitionDuration }}
       >
         <Fade
           appear
@@ -215,7 +208,7 @@ class AutoRotatingCarousel extends Component {
                 }
               </div>
             </div>
-            {!mobile && !hideArrows && hasMultipleChildren && (
+            {!mobile && hasMultipleChildren && (
               <div>
                 <Fab
                   className={classNames(classes.arrow, classes.arrowLeft)}
@@ -240,7 +233,6 @@ class AutoRotatingCarousel extends Component {
 
 AutoRotatingCarousel.defaultProps = {
   autoplay: true,
-  interval: 3000,
   mobile: false,
   open: false,
   hideArrows: false
@@ -249,22 +241,12 @@ AutoRotatingCarousel.defaultProps = {
 AutoRotatingCarousel.propTypes = {
   /** Object for customizing the CSS classes. */
   classes: PropTypes.object.isRequired,
-  /** Delay between auto play transitions (in ms). */
-  interval: PropTypes.number,
   /** If `true`, the screen width and height is filled. */
   mobile: PropTypes.bool,
-  /** Properties applied to the [Modal](https://material-ui.com/api/modal/) element. */
-  ModalProps: PropTypes.object,
-  /** Fired when the index changed. Returns current index. */
-  onChange: PropTypes.func,
   /** Fired when the gray background of the popup is pressed when it is open. */
   onClose: PropTypes.func,
-  /** Fired when the user clicks the getting started button. */
-  onStart: PropTypes.func,
   /** Controls whether the AutoRotatingCarousel is opened or not. */
   open: PropTypes.bool,
-  /** If `true`, the left and right arrows are hidden in the desktop version. */
-  hideArrows: PropTypes.bool
 }
 
 export default withStyles(styles)(AutoRotatingCarousel)
