@@ -165,7 +165,6 @@ class AutoRotatingCarousel extends Component {
 
     const carousel = (
       <Carousel
-        autoplay={open && autoplay && hasMultipleChildren}
         className={classes.carousel}
         containerStyle={{ height: '100%', ...containerStyle }}
         index={this.state.slideIndex}
