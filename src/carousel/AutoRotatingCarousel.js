@@ -144,40 +144,28 @@ class AutoRotatingCarousel extends Component {
 
   render () {
     const {
-      autoplay,
-      ButtonProps,
       children,
       classes,
-      containerStyle,
       hideArrows,
       interval,
-      label,
-      landscape: landscapeProp,
       mobile,
       ModalProps,
       open,
       onClose,
-      onStart
     } = this.props
-    const landscape = mobile && landscapeProp
     const transitionDuration = { enter: duration.enteringScreen, exit: duration.leavingScreen }
     const hasMultipleChildren = children.length != null
 
     const carousel = (
       <Carousel
         className={classes.carousel}
-        containerStyle={{ height: '100%', ...containerStyle }}
+        containerStyle={{ height: '100%' }}
         index={this.state.slideIndex}
         interval={interval}
         onChangeIndex={this.handleChange}
         slideClassName={classes.slide}
       >
-        {
-          React.Children.map(children, c => React.cloneElement(c, {
-            mobile,
-            landscape
-          }))
-        }
+        {children}
       </Carousel>
     )
 
@@ -208,20 +196,12 @@ class AutoRotatingCarousel extends Component {
               className={classes.carouselWrapper}>
               {carousel}
             </Paper>
-            <div style={landscape ? { minWidth: 300, maxWidth: 'calc(50% - 48px)', padding: 24, float: 'right' } : null}>
+            <div>
               <div
                 className={classNames(classes.footer, {
                   [classes.footerMobile]: mobile,
-                  [classes.footerMobileLandscape]: landscape
                 })}
               >
-                {label && <Button
-                  variant='contained'
-                  onClick={onStart}
-                  {...ButtonProps}
-                >
-                  {label}
-                </Button>}
                 {
                   hasMultipleChildren &&
                   <Dots
@@ -229,7 +209,6 @@ class AutoRotatingCarousel extends Component {
                     index={modulo(this.state.slideIndex, children.length)}
                     className={classNames(classes.dots, {
                       [classes.dotsMobile]: mobile,
-                      [classes.dotsMobileLandscape]: landscape
                     })}
                     onDotClick={this.handleChange}
                   />
@@ -268,20 +247,10 @@ AutoRotatingCarousel.defaultProps = {
 }
 
 AutoRotatingCarousel.propTypes = {
-  /** If `false`, the auto play behavior is disabled. */
-  autoplay: PropTypes.bool,
-  /** Properties applied to the [Button](https://material-ui.com/api/button/) element. */
-  ButtonProps: PropTypes.object,
   /** Object for customizing the CSS classes. */
   classes: PropTypes.object.isRequired,
-  /** Override the inline-styles of the carousel container. */
-  containerStyle: PropTypes.object,
   /** Delay between auto play transitions (in ms). */
   interval: PropTypes.number,
-  /** Button text. If not supplied, the button will be hidden. */
-  label: PropTypes.string,
-  /** If `true`, slide will adjust content for wide mobile screens. */
-  landscape: PropTypes.bool,
   /** If `true`, the screen width and height is filled. */
   mobile: PropTypes.bool,
   /** Properties applied to the [Modal](https://material-ui.com/api/modal/) element. */

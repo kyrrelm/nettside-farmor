@@ -169,11 +169,8 @@ function AutoRotatingCarouselModal({
         <div>
             {/* <Button onClick={() => setHandleOpen({ open: true })}>Open carousel</Button> */}
             <AutoRotatingCarousel
-                label="Get started"
                 open={isOpen}
                 onClose={() => setIsOpen(false)}
-                onStart={() => setIsOpen(false)}
-                autoplay={false}
                 mobile={isMobile}
                 style={{ position: "absolute" }}
             >
