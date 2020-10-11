@@ -3,7 +3,7 @@ import Slide from "./Slide";
 import React from "react";
 
 export default function AutoRotatingCarouselModal({
-                                                      imageUrls,
+    imageUrls,
     isMobile,
     isOpen,
     setIsOpen,
@@ -15,9 +15,8 @@ export default function AutoRotatingCarouselModal({
 }) {
     return (
         <div>
-            {/* <Button onClick={() => setHandleOpen({ open: true })}>Open carousel</Button> */}
             <AutoRotatingCarousel
-                open={isOpen}
+                isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
                 mobile={isMobile}
                 style={{ position: "absolute" }}
