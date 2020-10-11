@@ -1,6 +1,7 @@
 import React, { CSSProperties, useLayoutEffect, useState } from "react";
 import AutoRotatingCarousel from "../carousel/AutoRotatingCarousel";
 import Slide from "../carousel/Slide";
+import AutoRotatingCarouselModal from "../carousel/AutoRotatingCarouselModal";
 
 const COLUMNS = 3;
 
@@ -13,7 +14,6 @@ interface Props {
 
 export default function Project({ navn, imageUrls }: Props) {
     const [width] = useWindowSize();
-    console.log("width", width);
     if (width < 800) {
         STANDARD_SPACING = 10;
     } else {
@@ -31,6 +31,7 @@ export default function Project({ navn, imageUrls }: Props) {
             {renderHeader(navn)}
             {renderImages(imageUrls, handleClick)}
             <AutoRotatingCarouselModal
+                imageUrls={imageUrls}
                 isMobile={matches}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
@@ -156,34 +157,4 @@ function useWindowSize() {
     return size;
 }
 
-function AutoRotatingCarouselModal({
-    isMobile,
-    isOpen,
-    setIsOpen,
-}: {
-    isMobile: boolean;
-    isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void;
-}) {
-    return (
-        <div>
-            {/* <Button onClick={() => setHandleOpen({ open: true })}>Open carousel</Button> */}
-            <AutoRotatingCarousel
-                open={isOpen}
-                onClose={() => setIsOpen(false)}
-                mobile={isMobile}
-                style={{ position: "absolute" }}
-            >
-                <Slide>
-                    <img src="http://www.icons101.com/icon_png/size_256/id_79394/youtube.png" />
-                </Slide>
-                <Slide>
-                    <img src="http://www.icons101.com/icon_png/size_256/id_80975/GoogleInbox.png" />
-                </Slide>
-                <Slide>
-                    <img src="http://www.icons101.com/icon_png/size_256/id_76704/Google_Settings.png" />
-                </Slide>
-            </AutoRotatingCarousel>
-        </div>
-    );
-}
+
