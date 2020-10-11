@@ -129,17 +129,12 @@ function AutoRotatingCarousel({
         e.stopPropagation() || e.preventDefault();
     }
 
-    //TODO: fjern denne
-    function handleChange(slideIndex: number) {
-        setSlideIndex(slideIndex);
-    }
-
     function decreaseIndex() {
-        setSlideIndex(slideIndex - 1);
+        setSlideIndex(modulo(slideIndex - 1, numberOfChildren));
     }
 
     function increaseIndex() {
-        setSlideIndex(slideIndex + 1);
+        setSlideIndex(modulo(slideIndex + 1, numberOfChildren));
     }
 
     const transitionDuration = {
@@ -154,7 +149,7 @@ function AutoRotatingCarousel({
             className={classes.carousel}
             containerStyle={{ height: "100%" }}
             index={slideIndex}
-            onChangeIndex={handleChange}
+            onChangeIndex={setSlideIndex}
             slideClassName={classes.slide}
         >
             {children}
@@ -191,11 +186,11 @@ function AutoRotatingCarousel({
                             {hasMultipleChildren && (
                                 <Dots
                                     count={numberOfChildren}
-                                    index={modulo(slideIndex, numberOfChildren)}
+                                    index={slideIndex}
                                     className={classNames(classes.dots, {
                                         [classes.dotsMobile]: mobile,
                                     })}
-                                    onDotClick={handleChange}
+                                    onDotClick={setSlideIndex}
                                 />
                             )}
                         </div>
