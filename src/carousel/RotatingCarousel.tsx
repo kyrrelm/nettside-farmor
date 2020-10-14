@@ -129,11 +129,11 @@ function RotatingCarousel({
     }
 
     function decreaseIndex() {
-        setSlideIndex(modulo(slideIndex - 1, numberOfChildren));
+        setSlideIndex(slideIndex - 1);
     }
 
     function increaseIndex() {
-        setSlideIndex(modulo(slideIndex + 1, numberOfChildren));
+        setSlideIndex(slideIndex + 1);
     }
 
     const transitionDuration = {
@@ -180,11 +180,11 @@ function RotatingCarousel({
                             {hasMultipleChildren && (
                                 <Dots
                                     count={numberOfChildren}
-                                    index={slideIndex}
+                                    index={modulo(slideIndex, numberOfChildren)}
                                     className={classNames(classes.dots, {
                                         [classes.dotsMobile]: mobile,
                                     })}
-                                    onDotClick={setSlideIndex}
+                                    onDotClick={modulo(slideIndex, numberOfChildren)}
                                 />
                             )}
                         </div>
