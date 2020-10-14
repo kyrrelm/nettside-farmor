@@ -58,13 +58,6 @@ const styles = {
     arrowIcon: {
         color: grey[700],
     },
-    carouselWrapper: {
-        overflow: "hidden",
-        borderRadius: 14,
-        transform: "scale(1.0)",
-        background: "transparent",
-        height: "100%",
-    },
     dots: {
         paddingTop: 36,
         margin: "0 auto",
@@ -153,53 +146,56 @@ function RotatingCarousel({
                     })}
                     onClick={handleContentClick}
                 >
-                    <div className={classes.carouselWrapper}>{carousel}</div>
-                    <div>
-                        <div
-                            className={classNames(classes.footer, {
-                                [classes.footerMobile]: mobile,
-                            })}
-                        >
-                            {hasMultipleChildren && (
-                                <Dots
-                                    count={numberOfChildren}
-                                    index={modulo(slideIndex, numberOfChildren)}
-                                    className={classNames(classes.dots, {
-                                        [classes.dotsMobile]: mobile,
-                                    })}
-                                    onDotClick={modulo(slideIndex, numberOfChildren)}
-                                />
-                            )}
-                        </div>
-                    </div>
-                    {!mobile && hasMultipleChildren && (
-                        <div>
-                            <Fab
-                                className={classNames(
-                                    classes.arrow,
-                                    classes.arrowLeft
-                                )}
-                                onClick={decreaseIndex}
-                            >
-                                <ArrowBackIcon className={classes.arrowIcon} />
-                            </Fab>
-                            <Fab
-                                className={classNames(
-                                    classes.arrow,
-                                    classes.arrowRight
-                                )}
-                                onClick={increaseIndex}
-                            >
-                                <ArrowForwardIcon
-                                    className={classes.arrowIcon}
-                                />
-                            </Fab>
-                        </div>
-                    )}
+                    {carousel}
+                    {renderFooter()}
+                    {renderArrows()}
                 </div>
             </Fade>
         </Modal>
     );
+
+    function renderFooter() {
+        return (
+            <div
+                className={classNames(classes.footer, {
+                    [classes.footerMobile]: mobile,
+                })}
+            >
+                {hasMultipleChildren && (
+                    <Dots
+                        count={numberOfChildren}
+                        index={modulo(slideIndex, numberOfChildren)}
+                        className={classNames(classes.dots, {
+                            [classes.dotsMobile]: mobile,
+                        })}
+                        onDotClick={modulo(slideIndex, numberOfChildren)}
+                    />
+                )}
+            </div>
+        );
+    }
+
+    function renderArrows() {
+        if (mobile || !hasMultipleChildren) {
+            return null;
+        }
+        return (
+            <div>
+                <Fab
+                    className={classNames(classes.arrow, classes.arrowLeft)}
+                    onClick={decreaseIndex}
+                >
+                    <ArrowBackIcon className={classes.arrowIcon} />
+                </Fab>
+                <Fab
+                    className={classNames(classes.arrow, classes.arrowRight)}
+                    onClick={increaseIndex}
+                >
+                    <ArrowForwardIcon className={classes.arrowIcon} />
+                </Fab>
+            </div>
+        );
+    }
 }
 
 // @ts-ignore
