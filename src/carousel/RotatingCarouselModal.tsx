@@ -1,4 +1,4 @@
-import AutoRotatingCarousel from "./RotatingCarousel";
+import RotatingCarousel from "./RotatingCarousel";
 import Slide from "./Slide";
 import React from "react";
 
@@ -15,7 +15,7 @@ export default function RotatingCarouselModal({
 }) {
     return (
         <div>
-            <AutoRotatingCarousel
+            <RotatingCarousel
                 isOpen={isOpen}
                 onClose={() => setIsOpen(false)}
                 mobile={isMobile}
@@ -26,7 +26,7 @@ export default function RotatingCarouselModal({
                         <img src={imageUrl} />
                     </Slide>
                 ))}
-            </AutoRotatingCarousel>
+            </RotatingCarousel>
         </div>
     );
 }
