@@ -1,8 +1,7 @@
-import React, {ReactNode, useState} from "react";
-import Paper from "@material-ui/core/Paper";
-import {grey} from "@material-ui/core/colors";
+import React, { ReactNode, useState } from "react";
+import { grey } from "@material-ui/core/colors";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {duration} from "@material-ui/core/styles/transitions";
+import { duration } from "@material-ui/core/styles/transitions";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -13,7 +12,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Dots from "material-ui-dots";
 import classNames from "classnames";
 import Carousel from "./SwipableCarouselView";
-import {modulo} from "./util";
+import { modulo } from "./util";
 
 const styles = {
     root: {
@@ -171,12 +170,7 @@ function RotatingCarousel({
                     })}
                     onClick={handleContentClick}
                 >
-                    <Paper
-                        elevation={mobile ? 0 : 1}
-                        className={classes.carouselWrapper}
-                    >
-                        {carousel}
-                    </Paper>
+                    <div className={classes.carouselWrapper}>{carousel}</div>
                     <div>
                         <div
                             className={classNames(classes.footer, {
