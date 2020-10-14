@@ -23,7 +23,7 @@ export default function RotatingCarouselModal({
             >
                 {imageUrls.map((imageUrl) => (
                     <Slide>
-                        <img src={imageUrl} />
+                        <img src={imageUrl} style={{ height: '100%', width: '100%' }} />
                     </Slide>
                 ))}
             </RotatingCarousel>

@@ -121,8 +121,6 @@ function RotatingCarousel({
 
     const carousel = (
         <Carousel
-            className={classes.carousel}
-            containerStyle={{ height: "100%" }}
             index={slideIndex}
             onChangeIndex={setSlideIndex}
             slideClassName={classes.slide}
