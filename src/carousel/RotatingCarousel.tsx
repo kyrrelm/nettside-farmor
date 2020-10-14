@@ -72,9 +72,6 @@ const styles = {
     dotsMobile: {
         paddingTop: 0,
     },
-    dotsMobileLandscape: {
-        paddingTop: 20,
-    },
     footer: {
         marginTop: -72,
         width: "100%",
@@ -84,27 +81,13 @@ const styles = {
     footerMobile: {
         marginTop: -92,
     },
-    footerMobileLandscape: {
-        marginTop: -3,
-        transform: "translateY(-50vh)",
-        display: "inline-block",
-        width: "auto",
-    },
     slide: {
-        width: "100%",
-        height: "100%",
-    },
-    slideMobile: {
         width: "100%",
         height: "100%",
     },
     carousel: {
         height: "100%",
     },
-    carouselContainer: {
-        height: "100%",
-    },
-    closed: {},
 };
 
 function RotatingCarousel({
