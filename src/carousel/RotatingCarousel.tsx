@@ -136,14 +136,22 @@ function RotatingCarousel({
         >
             <Fade appear in={isOpen} timeout={transitionDuration}>
                 <div
-                    className={classNames(classes.content, {
-                        [classes.contentMobile]: mobile,
-                    })}
-                    onClick={handleContentClick}
+                    style={{
+                        display: "flex",
+                        width: "100%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
                 >
-                    {carousel}
-                    {renderFooter()}
-                    {renderArrows()}
+                    <div
+                        onClick={handleContentClick}
+                        style={{ width: "60%", maxWidth: 700 }}
+                    >
+                        {carousel}
+                        {renderFooter()}
+                        {renderArrows()}
+                    </div>
                 </div>
             </Fade>
         </Modal>
