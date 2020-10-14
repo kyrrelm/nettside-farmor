@@ -1,7 +1,7 @@
 import React, { CSSProperties, useLayoutEffect, useState } from "react";
-import AutoRotatingCarousel from "../carousel/AutoRotatingCarousel";
+import AutoRotatingCarousel from "../carousel/RotatingCarousel";
 import Slide from "../carousel/Slide";
-import AutoRotatingCarouselModal from "../carousel/AutoRotatingCarouselModal";
+import RotatingCarouselModal from "../carousel/RotatingCarouselModal";
 
 const COLUMNS = 3;
 
@@ -30,7 +30,7 @@ export default function Project({ navn, imageUrls }: Props) {
         <div>
             {renderHeader(navn)}
             {renderImages(imageUrls, handleClick)}
-            <AutoRotatingCarouselModal
+            <RotatingCarouselModal
                 imageUrls={imageUrls}
                 isMobile={matches}
                 isOpen={isOpen}

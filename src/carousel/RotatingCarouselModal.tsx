@@ -1,8 +1,8 @@
-import AutoRotatingCarousel from "./AutoRotatingCarousel";
+import AutoRotatingCarousel from "./RotatingCarousel";
 import Slide from "./Slide";
 import React from "react";
 
-export default function AutoRotatingCarouselModal({
+export default function RotatingCarouselModal({
     imageUrls,
     isMobile,
     isOpen,
