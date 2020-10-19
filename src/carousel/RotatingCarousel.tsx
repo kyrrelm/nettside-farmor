@@ -11,7 +11,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 // @ts-ignore
 import Dots from "material-ui-dots";
 import classNames from "classnames";
-import Carousel from "./SwipableCarouselView";
+import SwipableCarouselView from "./SwipableCarouselView";
 import { modulo } from "./util";
 
 const styles = {
@@ -117,14 +117,14 @@ function RotatingCarousel({
     const hasMultipleChildren = numberOfChildren > 1;
 
     const carousel = (
-        <Carousel
+        <SwipableCarouselView
             index={slideIndex}
             onChangeIndex={setSlideIndex}
             slideClassName={classes.slide}
             containerStyle={{ alignItems: "center" }}
         >
             {children}
-        </Carousel>
+        </SwipableCarouselView>
     );
 
     return (
