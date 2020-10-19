@@ -121,6 +121,7 @@ function RotatingCarousel({
             index={slideIndex}
             onChangeIndex={setSlideIndex}
             slideClassName={classes.slide}
+            containerStyle={{ alignItems: "center" }}
         >
             {children}
         </Carousel>
