@@ -58,22 +58,6 @@ const styles = {
     arrowIcon: {
         color: grey[700],
     },
-    dots: {
-        paddingTop: 36,
-        margin: "0 auto",
-    },
-    dotsMobile: {
-        paddingTop: 0,
-    },
-    footer: {
-        marginTop: -72,
-        width: "100%",
-        position: "relative",
-        textAlign: "center",
-    },
-    footerMobile: {
-        marginTop: -92,
-    },
     slide: {
         width: "100%",
         height: "100%",
@@ -143,38 +127,37 @@ function RotatingCarousel({
                         height: "100%",
                         justifyContent: "center",
                         alignItems: "center",
+                        flexDirection: "column"
                     }}
                 >
                     <div
                         onClick={handleContentClick}
-                        style={{ width: mobile ? "100%" : "60%", maxWidth: 700 }}
+                        style={{
+                            width: mobile ? "100%" : "60%",
+                            maxWidth: 700,
+                            position: "relative",
+                        }}
                     >
                         {carousel}
-                        {renderFooter()}
                         {renderArrows()}
                     </div>
+                        {renderFooter()}
                 </div>
             </Fade>
         </Modal>
     );
 
     function renderFooter() {
+        if (!hasMultipleChildren) {
+            return null;
+        }
         return (
-            <div
-                className={classNames(classes.footer, {
-                    [classes.footerMobile]: mobile,
-                })}
-            >
-                {hasMultipleChildren && (
-                    <Dots
-                        count={numberOfChildren}
-                        index={modulo(slideIndex, numberOfChildren)}
-                        className={classNames(classes.dots, {
-                            [classes.dotsMobile]: mobile,
-                        })}
-                        onDotClick={modulo(slideIndex, numberOfChildren)}
-                    />
-                )}
+            <div style={{ margin: "0 auto" }}>
+                <Dots
+                    count={numberOfChildren}
+                    index={modulo(slideIndex, numberOfChildren)}
+                    onDotClick={modulo(slideIndex, numberOfChildren)}
+                />
             </div>
         );
     }
