@@ -156,7 +156,7 @@ function RotatingCarousel({
                 <Dots
                     count={numberOfChildren}
                     index={modulo(slideIndex, numberOfChildren)}
-                    onDotClick={modulo(slideIndex, numberOfChildren)}
+                    onDotClick={setSlideIndex}
                 />
             </div>
         );
