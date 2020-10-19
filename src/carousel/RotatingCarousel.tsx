@@ -129,6 +129,7 @@ function RotatingCarousel({
                         alignItems: "center",
                         flexDirection: "column"
                     }}
+                    onClick={onClose}
                 >
                     <div
                         onClick={handleContentClick}
@@ -152,7 +153,7 @@ function RotatingCarousel({
             return null;
         }
         return (
-            <div style={{ margin: "0 auto" }}>
+            <div style={{ margin: "0 auto" }} onClick={handleContentClick}>
                 <Dots
                     count={numberOfChildren}
                     index={modulo(slideIndex, numberOfChildren)}
