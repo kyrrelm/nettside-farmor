@@ -147,7 +147,7 @@ function RotatingCarousel({
                 >
                     <div
                         onClick={handleContentClick}
-                        style={{ width: "60%", maxWidth: 700 }}
+                        style={{ width: mobile ? "100%" : "60%", maxWidth: 700 }}
                     >
                         {carousel}
                         {renderFooter()}
