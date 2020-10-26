@@ -5,25 +5,28 @@ import React from "react";
 export default function RotatingCarouselModal({
     imageUrls,
     isMobile,
-    isOpen,
-    setIsOpen,
+    startIndexOrClosed,
+    onClose,
 }: {
     imageUrls: string[];
     isMobile: boolean;
-    isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void;
+    startIndexOrClosed: number | undefined;
+    onClose: (isOpen: boolean) => void;
 }) {
     return (
         <div>
             <RotatingCarousel
-                isOpen={isOpen}
-                onClose={() => setIsOpen(false)}
+                startIndexOrClosed={startIndexOrClosed}
+                onClose={onClose}
                 mobile={isMobile}
                 style={{ position: "absolute" }}
             >
                 {imageUrls.map((imageUrl) => (
-                    <Slide>
-                        <img src={imageUrl} style={{ height: '100%', width: '100%' }} />
+                    <Slide key={imageUrl}>
+                        <img
+                            src={imageUrl}
+                            style={{ height: "100%", width: "100%" }}
+                        />
                     </Slide>
                 ))}
             </RotatingCarousel>

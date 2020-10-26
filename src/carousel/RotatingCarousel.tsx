@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from "react";
+import React, {ReactNode, useEffect, useState} from "react";
 import { grey } from "@material-ui/core/colors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { duration } from "@material-ui/core/styles/transitions";
@@ -66,20 +66,30 @@ const styles = {
 
 function RotatingCarousel({
     mobile,
-    isOpen,
+    startIndexOrClosed,
     onClose,
     children,
     classes,
 }: {
     autoplay: boolean;
     mobile: boolean;
-    isOpen: boolean;
+    startIndexOrClosed: number | undefined;
     hideArrows: boolean;
     onClose: () => void;
     children: ReactNode | ReactNode[];
     classes: any;
 }) {
     const [slideIndex, setSlideIndex] = useState<number>(0);
+
+    useEffect(() => {
+        console.log('startIndexOrClosed', startIndexOrClosed);
+        if (startIndexOrClosed !== undefined && startIndexOrClosed !== slideIndex) {
+            setSlideIndex(startIndexOrClosed);
+        }
+    }, [startIndexOrClosed])
+
+    const isOpen = startIndexOrClosed !== undefined;
+
 
     function handleContentClick(e: any) {
         e.stopPropagation() || e.preventDefault();
@@ -127,7 +137,7 @@ function RotatingCarousel({
                         height: "100%",
                         justifyContent: "center",
                         alignItems: "center",
-                        flexDirection: "column"
+                        flexDirection: "column",
                     }}
                     onClick={onClose}
                 >
@@ -142,7 +152,7 @@ function RotatingCarousel({
                         {carousel}
                         {renderArrows()}
                     </div>
-                        {renderFooter()}
+                    {renderFooter()}
                 </div>
             </Fade>
         </Modal>

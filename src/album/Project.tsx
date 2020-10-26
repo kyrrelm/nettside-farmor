@@ -1,6 +1,4 @@
-import React, { CSSProperties, useLayoutEffect, useState } from "react";
-import AutoRotatingCarousel from "../carousel/RotatingCarousel";
-import Slide from "../carousel/Slide";
+import React, {CSSProperties, useLayoutEffect, useState} from "react";
 import RotatingCarouselModal from "../carousel/RotatingCarouselModal";
 
 const COLUMNS = 3;
@@ -20,11 +18,18 @@ export default function Project({ navn, imageUrls }: Props) {
         STANDARD_SPACING = 40;
     }
 
-    const [isOpen, setIsOpen] = useState(false);
-    const handleClick = () => {
-        setIsOpen(true);
+    const isMobile = width <= 600;
+
+    const [startIndexOrClosed, setStartIndexOrClosed] = useState<number | undefined>(undefined);
+
+    const handleClick = (index: number) => {
+        console.log('clicking', index);
+        setStartIndexOrClosed(index);
     };
-    const matches = width <= 600;
+
+    const onClose = () => {
+        setStartIndexOrClosed(undefined)
+    };
 
     return (
         <div>
@@ -32,9 +37,9 @@ export default function Project({ navn, imageUrls }: Props) {
             {renderImages(imageUrls, handleClick)}
             <RotatingCarouselModal
                 imageUrls={imageUrls}
-                isMobile={matches}
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
+                isMobile={isMobile}
+                startIndexOrClosed={startIndexOrClosed}
+                onClose={onClose}
             />
         </div>
     );
@@ -56,7 +61,7 @@ function renderHeader(navn: string) {
     );
 }
 
-function renderImages(imageUrls: string[], handleClick: () => void) {
+function renderImages(imageUrls: string[], handleClick: (index: number) => void) {
     return (
         <div
             style={{
@@ -64,16 +69,18 @@ function renderImages(imageUrls: string[], handleClick: () => void) {
                 flexDirection: "column",
             }}
         >
-            {chunk(imageUrls, COLUMNS).map((rowUrls) =>
-                renderRow(rowUrls, handleClick)
+            {chunk(imageUrls, COLUMNS).map((rowUrls, rowIndex) =>
+                renderRow(rowUrls, handleClick, rowIndex)
             )}
         </div>
     );
 }
 
-function renderRow(localImageUrls: string[], handleClick: () => void) {
+function renderRow(localImageUrls: string[], handleClick: (index: number) => void, rowIndex: number) {
+    const startIndex = rowIndex * COLUMNS;
     return (
         <div
+            key={rowIndex}
             style={{
                 display: "flex",
                 marginBottom: STANDARD_SPACING,
@@ -81,20 +88,21 @@ function renderRow(localImageUrls: string[], handleClick: () => void) {
                 marginRight: -STANDARD_SPACING / 2,
             }}
         >
-            {localImageUrls.map((url) =>
-                renderImageContainer(url, handleClick)
+            {localImageUrls.map((url, columnIndex) =>
+                renderImageContainer(startIndex + columnIndex, url, handleClick)
             )}
-            {[...new Array(COLUMNS - localImageUrls.length)].map(() =>
-                renderImageContainer()
+            {[...new Array(COLUMNS - localImageUrls.length)].map((e, index) =>
+                renderImageContainer(index)
             )}
         </div>
     );
 }
 
-function renderImageContainer(url?: string, handleClick?: () => void) {
+function renderImageContainer(index: number, url?: string, handleClick?: (index: number) => void) {
     if (url === undefined || handleClick === undefined) {
         return (
             <div
+                key={`filler-${index}`}
                 style={{
                     flexBasis: "0%",
                     flexGrow: 1,
@@ -115,7 +123,7 @@ function renderImageContainer(url?: string, handleClick?: () => void) {
             }}
         >
             <div
-                onClick={handleClick}
+                onClick={() => handleClick(index)}
                 style={{
                     maxHeight: 700,
                     maxWidth: 700,
