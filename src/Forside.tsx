@@ -29,11 +29,40 @@ export default function Forside() {
                 <h1 style={{ fontSize: "4rem", marginBottom: "-1rem" }}>
                     Anne Grete Hansteen
                 </h1>
-                <h2 style={{ fontSize: "1.6rem", fontWeight: 200 }}>
+                <h2 style={{ fontSize: "1.8rem", fontWeight: 200 }}>
                     Sivilarkitekt
                 </h2>
                 <div style={{ marginTop: "8rem" }}>
-                    <Link to="/album">Prosjekter</Link>
+                    <Link
+                        style={{
+                            paddingLeft: "0.5rem",
+                            paddingRight: "0.5rem",
+                            fontSize: "1.2rem",
+                        }}
+                        to="/album"
+                    >
+                        Prosjekter
+                    </Link>
+                    <Link
+                        style={{
+                            paddingLeft: "0.5rem",
+                            paddingRight: "0.5rem",
+                            fontSize: "1.2rem",
+                        }}
+                        to="/album"
+                    >
+                        Om Meg
+                    </Link>
+                    <Link
+                        style={{
+                            paddingLeft: "0.5rem",
+                            paddingRight: "0.5rem",
+                            fontSize: "1.2rem",
+                        }}
+                        to="/album"
+                    >
+                        Kontak
+                    </Link>
                 </div>
             </div>
         </div>
