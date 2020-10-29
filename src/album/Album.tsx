@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React from "react";
 import Project from "./Project";
 import arvoll2 from "../img/BoliganleggArvoll/2boliganleggArvoll.jpeg";
 import arvoll3 from "../img/BoliganleggArvoll/3boliganleggArvoll.jpeg";
@@ -54,9 +54,9 @@ import tomannsboligUllern1 from "../img/TomannsboligUllern/1TomannsboligerUllern
 import tomannsboligUllern2 from "../img/TomannsboligUllern/2TomannsboligerUllern.jpeg";
 import tomannsboligUllern3 from "../img/TomannsboligUllern/3TomannsboligerUllern.jpeg";
 import tomannsboligUllern4 from "../img/TomannsboligUllern/4TomannsboligerUllern.jpeg";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {useWindowSize} from "../carousel/util";
+import StandardPageLayout from "../StandardPageLayout";
 
 export default function Album() {
     const history = useHistory();
@@ -128,155 +128,115 @@ export default function Album() {
     ];
 
     return (
-        <div
-            style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                justifyContent: "center",
-            }}
-        >
-            <div
-                onClick={() => history.push("/")}
-                style={{
-                    cursor: "pointer",
-                    position: "absolute",
-                    left: "3rem",
-                    top: "3rem"
-                }}
-            >
-                <ArrowBackIcon fontSize={"large"} />
-            </div>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    maxWidth: 935,
-                    marginLeft: "3rem",
-                    marginRight: "3rem",
-                }}
-            >
-                <div
-                    style={{
-                        position: "relative",
-                        display: "flex",
-                        width: "100%",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        paddingTop: isMobile ? 30 : 90,
-                    }}
-                >
-                    <h1 style={{ justifySelf: "center", fontSize: "3rem" }}>Prosjekter</h1>
-                </div>
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Årvoll"}
-                    imageUrls={imagesArvoll}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Barnehage Blindern"}
-                    imageUrls={imagesBlindern}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Bestum, Bakkeveien 1"}
-                    imageUrls={imagesBestumBakkeveien1}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Bestum, Bakkeveien 3-9"}
-                    imageUrls={imagesBestumBakkeveien3_9}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Furulund"}
-                    imageUrls={imagesFurulund}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Lilleaker"}
-                    imageUrls={imagesLilleaker}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Nordstrand"}
-                    imageUrls={imagesNordstrand}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Nordstrand 2"}
-                    imageUrls={imagesNordstrand2}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Boliganlegg Sandaker"}
-                    imageUrls={imagesBoliganleggSandaker}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Enebolig Billingstad"}
-                    imageUrls={imagesEneboligBillingstad}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Enebolig Gjettum"}
-                    imageUrls={imagesEneboligGjettum}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Enebolig Jar"}
-                    imageUrls={imagesEneboligJar}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Enebolig Jar 2"}
-                    imageUrls={imagesEneboligJar2}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Enebolig Jar 3"}
-                    imageUrls={imagesEneboligJar3}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Firemannsbolig Nordberg"}
-                    imageUrls={imagesFiremannsboligNordberg}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Tomannsbolig Blommenholm"}
-                    imageUrls={imagesTomannsboligBlommenholm}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Tomannsbolig Sandvika"}
-                    imageUrls={imagesTomannsboligSandvika}
-                />
-                <Project
-                    width={width}
-                    isMobile={isMobile}
-                    navn={"Tomannsbolig Ullern"}
-                    imageUrls={imagesTomannsboligUllern}
-                />
-            </div>
-        </div>
+        <StandardPageLayout isMobile={isMobile} title={"Prosjekter"}>
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Årvoll"}
+                imageUrls={imagesArvoll}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Barnehage Blindern"}
+                imageUrls={imagesBlindern}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Bestum, Bakkeveien 1"}
+                imageUrls={imagesBestumBakkeveien1}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Bestum, Bakkeveien 3-9"}
+                imageUrls={imagesBestumBakkeveien3_9}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Furulund"}
+                imageUrls={imagesFurulund}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Lilleaker"}
+                imageUrls={imagesLilleaker}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Nordstrand"}
+                imageUrls={imagesNordstrand}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Nordstrand 2"}
+                imageUrls={imagesNordstrand2}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Boliganlegg Sandaker"}
+                imageUrls={imagesBoliganleggSandaker}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Enebolig Billingstad"}
+                imageUrls={imagesEneboligBillingstad}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Enebolig Gjettum"}
+                imageUrls={imagesEneboligGjettum}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Enebolig Jar"}
+                imageUrls={imagesEneboligJar}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Enebolig Jar 2"}
+                imageUrls={imagesEneboligJar2}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Enebolig Jar 3"}
+                imageUrls={imagesEneboligJar3}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Firemannsbolig Nordberg"}
+                imageUrls={imagesFiremannsboligNordberg}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Tomannsbolig Blommenholm"}
+                imageUrls={imagesTomannsboligBlommenholm}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Tomannsbolig Sandvika"}
+                imageUrls={imagesTomannsboligSandvika}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Tomannsbolig Ullern"}
+                imageUrls={imagesTomannsboligUllern}
+            />
+        </StandardPageLayout>
     );
 }
