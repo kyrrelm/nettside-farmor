@@ -49,12 +49,11 @@ function renderHeader(navn: string) {
             style={{
                 display: "flex",
                 justifyContent: "space-between",
-                marginBottom: STANDARD_SPACING/2,
+                marginBottom: STANDARD_SPACING/8,
                 marginTop: STANDARD_SPACING,
             }}
         >
-            <h2>{navn}</h2>
-            <div />
+            <h2 style={{ fontSize: "1.8rem", fontWeight: 200 }}>{navn}</h2>
         </header>
     );
 }

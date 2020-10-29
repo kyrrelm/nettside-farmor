@@ -165,7 +165,7 @@ export default function Album() {
                     >
                         <ArrowBackIcon fontSize={"large"} />
                     </div>
-                    <h1 style={{ justifySelf: "center" }}>Prosjekter</h1>
+                    <h1 style={{ justifySelf: "center", fontSize: "3rem" }}>Prosjekter</h1>
                 </div>
                 <Project
                     width={width}
