@@ -23,7 +23,6 @@ export default function Project({ navn, imageUrls }: Props) {
     const [startIndexOrClosed, setStartIndexOrClosed] = useState<number | undefined>(undefined);
 
     const handleClick = (index: number) => {
-        console.log('clicking', index);
         setStartIndexOrClosed(index);
     };
 
