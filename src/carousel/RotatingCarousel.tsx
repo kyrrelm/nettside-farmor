@@ -1,10 +1,11 @@
-import React, {ReactNode, useEffect, useState} from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import { grey } from "@material-ui/core/colors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { duration } from "@material-ui/core/styles/transitions";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import CloseIcon from "@material-ui/icons/Close";
 import Modal from "@material-ui/core/Modal";
 import Fade from "@material-ui/core/Fade";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -13,6 +14,7 @@ import Dots from "material-ui-dots";
 import classNames from "classnames";
 import SwipableCarouselView from "./SwipableCarouselView";
 import { modulo } from "./util";
+import { func } from "prop-types";
 
 const styles = {
     root: {
@@ -43,19 +45,33 @@ const styles = {
             borderRadius: 0,
         },
     },
-    arrow: {
+    circleIcon: {
         width: 48,
         height: 48,
-        position: "absolute",
-        top: "calc((100% - 96px) / 2 + 24px)",
     },
     arrowLeft: {
+        position: "absolute",
+        top: "calc((100% - 96px) / 2 + 24px)",
         left: -96,
     },
     arrowRight: {
+        position: "absolute",
+        top: "calc((100% - 96px) / 2 + 24px)",
         right: -96,
     },
+    close: {
+        position: "absolute",
+        top: 40,
+        right: 40,
+    },
+    closeMobile: {
+        top: 10,
+        right: 10,
+    },
     arrowIcon: {
+        color: grey[700],
+    },
+    closeIcon: {
         color: grey[700],
     },
     slide: {
@@ -82,14 +98,16 @@ function RotatingCarousel({
     const [slideIndex, setSlideIndex] = useState<number>(0);
 
     useEffect(() => {
-        console.log('startIndexOrClosed', startIndexOrClosed);
-        if (startIndexOrClosed !== undefined && startIndexOrClosed !== slideIndex) {
+        console.log("startIndexOrClosed", startIndexOrClosed);
+        if (
+            startIndexOrClosed !== undefined &&
+            startIndexOrClosed !== slideIndex
+        ) {
             setSlideIndex(startIndexOrClosed);
         }
-    }, [startIndexOrClosed])
+    }, [startIndexOrClosed]);
 
     const isOpen = startIndexOrClosed !== undefined;
-
 
     function handleContentClick(e: any) {
         e.stopPropagation() || e.preventDefault();
@@ -152,6 +170,7 @@ function RotatingCarousel({
                         {carousel}
                         {renderArrows()}
                     </div>
+                    {renderClose()}
                     {renderFooter()}
                 </div>
             </Fade>
@@ -173,6 +192,17 @@ function RotatingCarousel({
         );
     }
 
+    function renderClose() {
+        return (
+            <Fab
+                className={classNames(classes.circleIcon, classes.close, mobile && classes.closeMobile)}
+                onClick={onClose}
+            >
+                <CloseIcon className={classes.arrowIcon} />
+            </Fab>
+        );
+    }
+
     function renderArrows() {
         if (mobile || !hasMultipleChildren) {
             return null;
@@ -180,13 +210,19 @@ function RotatingCarousel({
         return (
             <div>
                 <Fab
-                    className={classNames(classes.arrow, classes.arrowLeft)}
+                    className={classNames(
+                        classes.circleIcon,
+                        classes.arrowLeft
+                    )}
                     onClick={decreaseIndex}
                 >
                     <ArrowBackIcon className={classes.arrowIcon} />
                 </Fab>
                 <Fab
-                    className={classNames(classes.arrow, classes.arrowRight)}
+                    className={classNames(
+                        classes.circleIcon,
+                        classes.arrowRight
+                    )}
                     onClick={increaseIndex}
                 >
                     <ArrowForwardIcon className={classes.arrowIcon} />
