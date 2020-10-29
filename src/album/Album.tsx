@@ -151,7 +151,7 @@ export default function Album() {
                         width: "100%",
                         alignItems: "center",
                         justifyContent: "center",
-                        paddingTop: 90,
+                        paddingTop: isMobile ? 30 : 90,
                     }}
                 >
                     <div
