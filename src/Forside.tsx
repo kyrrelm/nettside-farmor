@@ -1,11 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useWindowSize } from "./carousel/util";
+import {Link} from "react-router-dom";
 
 export default function Forside() {
-    const [width] = useWindowSize();
-
-    const isMobile = width <= 600;
     return (
         <div
             style={{
@@ -49,7 +45,7 @@ export default function Forside() {
                             paddingRight: "0.5rem",
                             fontSize: "1.2rem",
                         }}
-                        to="/album"
+                        to="/om-meg"
                     >
                         Om Meg
                     </Link>
@@ -59,9 +55,9 @@ export default function Forside() {
                             paddingRight: "0.5rem",
                             fontSize: "1.2rem",
                         }}
-                        to="/album"
+                        to="/kontakt"
                     >
-                        Kontak
+                        Kontakt
                     </Link>
                 </div>
             </div>
