@@ -50,7 +50,7 @@ function renderHeader(navn: string) {
             style={{
                 display: "flex",
                 justifyContent: "space-between",
-                marginBottom: STANDARD_SPACING,
+                marginBottom: STANDARD_SPACING/2,
                 marginTop: STANDARD_SPACING,
             }}
         >
