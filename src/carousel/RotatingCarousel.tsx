@@ -1,7 +1,7 @@
-import React, { ReactNode, useEffect, useState } from "react";
-import { grey } from "@material-ui/core/colors";
+import React, {ReactNode, useEffect, useState} from "react";
+import {grey} from "@material-ui/core/colors";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { duration } from "@material-ui/core/styles/transitions";
+import {duration} from "@material-ui/core/styles/transitions";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -13,8 +13,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Dots from "material-ui-dots";
 import classNames from "classnames";
 import SwipableCarouselView from "./SwipableCarouselView";
-import { modulo } from "./util";
-import { func } from "prop-types";
+import {modulo} from "./util";
 
 const styles = {
     root: {

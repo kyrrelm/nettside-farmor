@@ -54,11 +54,12 @@ import tomannsboligUllern1 from "../img/TomannsboligUllern/1TomannsboligerUllern
 import tomannsboligUllern2 from "../img/TomannsboligUllern/2TomannsboligerUllern.jpeg";
 import tomannsboligUllern3 from "../img/TomannsboligUllern/3TomannsboligerUllern.jpeg";
 import tomannsboligUllern4 from "../img/TomannsboligUllern/4TomannsboligerUllern.jpeg";
-import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { Button } from "@material-ui/core";
+import {useHistory} from "react-router-dom";
 
 export default function Album() {
+    const history = useHistory();
+
     const imagesArvoll = [arvoll2, arvoll3, arvoll4, arvoll5, arvoll6, arvoll7];
     const imagesBlindern = [blindern1, blindern2];
     const imagesBestumBakkeveien1 = [
@@ -140,12 +141,8 @@ export default function Album() {
                     marginRight: 20,
                 }}
             >
-                <div style={{ display: "flex" }}>
-                    <Button
-                        variant="contained"
-                        startIcon={<ArrowBackIcon />}
-                    >
-                    </Button>
+                <div onClick={history.goBack} style={{ cursor: "pointer" }}>
+                    <ArrowBackIcon fontSize={"large"} />
                 </div>
                 <h1 style={{ alignSelf: "center" }}>Prosjekter</h1>
                 <Project navn={"Boliganlegg Årvoll"} imageUrls={imagesArvoll} />
