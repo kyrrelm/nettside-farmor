@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import Button from "./Button";
 
 export default function Forside() {
@@ -17,9 +17,10 @@ export default function Forside() {
                 alignItems: "center",
             }}
         >
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
                 <h1>Anne Grete Hansteen</h1>
-                <Button onClick={() => history.push("/album")} text={"Album"} />
+                <h3>Sivilarkitekt</h3>
+                <Link to="/album">Prosjekter</Link>
             </div>
         </div>
     );
