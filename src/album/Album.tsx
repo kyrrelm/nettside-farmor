@@ -137,12 +137,23 @@ export default function Album() {
             }}
         >
             <div
+                onClick={() => history.push("/")}
+                style={{
+                    cursor: "pointer",
+                    position: "absolute",
+                    left: "3rem",
+                    top: "3rem"
+                }}
+            >
+                <ArrowBackIcon fontSize={"large"} />
+            </div>
+            <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     maxWidth: 935,
-                    marginLeft: 20,
-                    marginRight: 20,
+                    marginLeft: "3rem",
+                    marginRight: "3rem",
                 }}
             >
                 <div
@@ -155,16 +166,6 @@ export default function Album() {
                         paddingTop: isMobile ? 30 : 90,
                     }}
                 >
-                    <div
-                        onClick={history.goBack}
-                        style={{
-                            cursor: "pointer",
-                            position: "absolute",
-                            left: 0,
-                        }}
-                    >
-                        <ArrowBackIcon fontSize={"large"} />
-                    </div>
                     <h1 style={{ justifySelf: "center", fontSize: "3rem" }}>Prosjekter</h1>
                 </div>
                 <Project
