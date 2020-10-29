@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useState } from "react";
 import Project from "./Project";
 import arvoll2 from "../img/BoliganleggArvoll/2boliganleggArvoll.jpeg";
 import arvoll3 from "../img/BoliganleggArvoll/3boliganleggArvoll.jpeg";
@@ -59,6 +59,9 @@ import { useHistory } from "react-router-dom";
 
 export default function Album() {
     const history = useHistory();
+    const [width] = useWindowSize();
+
+    const isMobile = width <= 600;
 
     const imagesArvoll = [arvoll2, arvoll3, arvoll4, arvoll5, arvoll6, arvoll7];
     const imagesBlindern = [blindern1, blindern2];
@@ -148,81 +151,143 @@ export default function Album() {
                         width: "100%",
                         alignItems: "center",
                         justifyContent: "center",
-                        paddingTop: 90
+                        paddingTop: 90,
                     }}
                 >
-                    <div onClick={history.goBack} style={{ cursor: "pointer", position: "absolute", left: 0 }}>
+                    <div
+                        onClick={history.goBack}
+                        style={{
+                            cursor: "pointer",
+                            position: "absolute",
+                            left: 0,
+                        }}
+                    >
                         <ArrowBackIcon fontSize={"large"} />
                     </div>
                     <h1 style={{ justifySelf: "center" }}>Prosjekter</h1>
                 </div>
-                <Project navn={"Boliganlegg Årvoll"} imageUrls={imagesArvoll} />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
+                    navn={"Boliganlegg Årvoll"}
+                    imageUrls={imagesArvoll}
+                />
+                <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Barnehage Blindern"}
                     imageUrls={imagesBlindern}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Bestum, Bakkeveien 1"}
                     imageUrls={imagesBestumBakkeveien1}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Bestum, Bakkeveien 3-9"}
                     imageUrls={imagesBestumBakkeveien3_9}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Furulund"}
                     imageUrls={imagesFurulund}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Lilleaker"}
                     imageUrls={imagesLilleaker}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Nordstrand"}
                     imageUrls={imagesNordstrand}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Nordstrand 2"}
                     imageUrls={imagesNordstrand2}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Boliganlegg Sandaker"}
                     imageUrls={imagesBoliganleggSandaker}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Enebolig Billingstad"}
                     imageUrls={imagesEneboligBillingstad}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Enebolig Gjettum"}
                     imageUrls={imagesEneboligGjettum}
                 />
-                <Project navn={"Enebolig Jar"} imageUrls={imagesEneboligJar} />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
+                    navn={"Enebolig Jar"}
+                    imageUrls={imagesEneboligJar}
+                />
+                <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Enebolig Jar 2"}
                     imageUrls={imagesEneboligJar2}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Enebolig Jar 3"}
                     imageUrls={imagesEneboligJar3}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Firemannsbolig Nordberg"}
                     imageUrls={imagesFiremannsboligNordberg}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Tomannsbolig Blommenholm"}
                     imageUrls={imagesTomannsboligBlommenholm}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Tomannsbolig Sandvika"}
                     imageUrls={imagesTomannsboligSandvika}
                 />
                 <Project
+                    width={width}
+                    isMobile={isMobile}
                     navn={"Tomannsbolig Ullern"}
                     imageUrls={imagesTomannsboligUllern}
                 />
             </div>
         </div>
     );
+}
+
+function useWindowSize() {
+    const [size, setSize] = useState([0, 0]);
+    useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener("resize", updateSize);
+        updateSize();
+        return () => window.removeEventListener("resize", updateSize);
+    }, []);
+    return size;
 }

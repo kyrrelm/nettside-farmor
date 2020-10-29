@@ -1,4 +1,4 @@
-import React, {CSSProperties, useLayoutEffect, useState} from "react";
+import React, {CSSProperties, useState} from "react";
 import RotatingCarouselModal from "../carousel/RotatingCarouselModal";
 
 const COLUMNS = 3;
@@ -6,19 +6,18 @@ const COLUMNS = 3;
 let STANDARD_SPACING = 40;
 
 interface Props {
+    width: number;
+    isMobile: boolean;
     navn: string;
     imageUrls: string[];
 }
 
-export default function Project({ navn, imageUrls }: Props) {
-    const [width] = useWindowSize();
+export default function Project({ width, isMobile, navn, imageUrls, }: Props) {
     if (width < 800) {
         STANDARD_SPACING = 10;
     } else {
         STANDARD_SPACING = 40;
     }
-
-    const isMobile = width <= 600;
 
     const [startIndexOrClosed, setStartIndexOrClosed] = useState<number | undefined>(undefined);
 
@@ -149,19 +148,6 @@ function chunk<T>(array: T[], size: number): T[][] {
         index += size;
     }
     return chunked_arr;
-}
-
-function useWindowSize() {
-    const [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() => {
-        function updateSize() {
-            setSize([window.innerWidth, window.innerHeight]);
-        }
-        window.addEventListener("resize", updateSize);
-        updateSize();
-        return () => window.removeEventListener("resize", updateSize);
-    }, []);
-    return size;
 }
 
 
