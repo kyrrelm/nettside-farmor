@@ -3,9 +3,30 @@
     src: local("Roboto"), url(./fonts/Roboto-Regular.ttf) format("truetype");
 }
 
+@font-face {
+    font-family: "Poppins";
+    font-weight: 200;
+    src: local("Poppins"), url(./fonts/Poppins-ExtraLight.ttf) format("truetype");
+}
+
+
+@media screen and ( max-width: 600px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media screen and ( min-width: 600px) and (max-width: 900px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+
+
 body {
     margin: 0;
-    font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    font-family: "Poppins", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
         "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

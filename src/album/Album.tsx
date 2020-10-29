@@ -56,6 +56,7 @@ import tomannsboligUllern3 from "../img/TomannsboligUllern/3TomannsboligerUllern
 import tomannsboligUllern4 from "../img/TomannsboligUllern/4TomannsboligerUllern.jpeg";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useHistory } from "react-router-dom";
+import {useWindowSize} from "../carousel/util";
 
 export default function Album() {
     const history = useHistory();
@@ -277,17 +278,4 @@ export default function Album() {
             </div>
         </div>
     );
-}
-
-function useWindowSize() {
-    const [size, setSize] = useState([0, 0]);
-    useLayoutEffect(() => {
-        function updateSize() {
-            setSize([window.innerWidth, window.innerHeight]);
-        }
-        window.addEventListener("resize", updateSize);
-        updateSize();
-        return () => window.removeEventListener("resize", updateSize);
-    }, []);
-    return size;
 }

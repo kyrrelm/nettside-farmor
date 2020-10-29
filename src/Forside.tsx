@@ -1,7 +1,11 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useWindowSize } from "./carousel/util";
 
 export default function Forside() {
+    const [width] = useWindowSize();
+
+    const isMobile = width <= 600;
     return (
         <div
             style={{
@@ -15,10 +19,22 @@ export default function Forside() {
                 alignItems: "center",
             }}
         >
-            <div style={{ display: "flex", flexDirection: "column", textAlign: "center" }}>
-                <h1>Anne Grete Hansteen</h1>
-                <h3>Sivilarkitekt</h3>
-                <Link to="/album">Prosjekter</Link>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    textAlign: "center",
+                }}
+            >
+                <h1 style={{ fontSize: "4rem", marginBottom: "-1rem" }}>
+                    Anne Grete Hansteen
+                </h1>
+                <h2 style={{ fontSize: "1.6rem", fontWeight: 200 }}>
+                    Sivilarkitekt
+                </h2>
+                <div style={{ marginTop: "8rem" }}>
+                    <Link to="/album">Prosjekter</Link>
+                </div>
             </div>
         </div>
     );
