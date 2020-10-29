@@ -55,7 +55,7 @@ import tomannsboligUllern2 from "../img/TomannsboligUllern/2TomannsboligerUllern
 import tomannsboligUllern3 from "../img/TomannsboligUllern/3TomannsboligerUllern.jpeg";
 import tomannsboligUllern4 from "../img/TomannsboligUllern/4TomannsboligerUllern.jpeg";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import {useHistory} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default function Album() {
     const history = useHistory();
@@ -141,10 +141,21 @@ export default function Album() {
                     marginRight: 20,
                 }}
             >
-                <div onClick={history.goBack} style={{ cursor: "pointer" }}>
-                    <ArrowBackIcon fontSize={"large"} />
+                <div
+                    style={{
+                        position: "relative",
+                        display: "flex",
+                        width: "100%",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        paddingTop: 90
+                    }}
+                >
+                    <div onClick={history.goBack} style={{ cursor: "pointer", position: "absolute", left: 0 }}>
+                        <ArrowBackIcon fontSize={"large"} />
+                    </div>
+                    <h1 style={{ justifySelf: "center" }}>Prosjekter</h1>
                 </div>
-                <h1 style={{ alignSelf: "center" }}>Prosjekter</h1>
                 <Project navn={"Boliganlegg Årvoll"} imageUrls={imagesArvoll} />
                 <Project
                     navn={"Barnehage Blindern"}
