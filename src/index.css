@@ -24,3 +24,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: #fafafa;
 }
+
+div .MuiBackdrop-root {
+    background-color: rgba(0, 0, 0, 0.6);
+}
