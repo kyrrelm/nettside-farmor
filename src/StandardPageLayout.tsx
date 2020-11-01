@@ -24,17 +24,6 @@ export default function StandardPageLayout({
             }}
         >
             <div
-                onClick={() => history.push("/")}
-                style={{
-                    cursor: "pointer",
-                    position: "absolute",
-                    left: "3rem",
-                    top: "3rem",
-                }}
-            >
-                <ArrowBackIcon fontSize={"large"} />
-            </div>
-            <div
                 style={{
                     display: "flex",
                     flexDirection: "column",
@@ -58,6 +47,17 @@ export default function StandardPageLayout({
                     </h1>
                 </div>
                 {children}
+            </div>
+            <div
+                onClick={() => history.push("/")}
+                style={{
+                    cursor: "pointer",
+                    position: "absolute",
+                    left: "3rem",
+                    top: "3rem",
+                }}
+            >
+                <ArrowBackIcon fontSize={"large"} />
             </div>
         </div>
     );
