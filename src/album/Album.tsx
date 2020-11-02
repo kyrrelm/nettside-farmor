@@ -62,7 +62,7 @@ export default function Album() {
     const history = useHistory();
     const [width] = useWindowSize();
 
-    const isMobile = width <= 600;
+    const isMobile = width < 600;
 
     const imagesArvoll = [arvoll2, arvoll3, arvoll4, arvoll5, arvoll6, arvoll7];
     const imagesBlindern = [blindern1, blindern2];

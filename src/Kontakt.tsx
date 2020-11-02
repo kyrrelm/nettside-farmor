@@ -5,7 +5,7 @@ import Informasjon from "./Informasjon";
 
 export default function Kontakt() {
     const [width] = useWindowSize();
-    const isMobile = width <= 600;
+    const isMobile = width < 600;
     return (
         <StandardPageLayout isMobile={isMobile} title={"Kontakt"} centerTitle>
             <Informasjon
