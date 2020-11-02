@@ -5,12 +5,14 @@ import { useHistory } from "react-router-dom";
 interface Props {
     isMobile: boolean;
     title: string;
+    centerTitle?: boolean;
     children: ReactNode | ReactNode[];
 }
 
 export default function StandardPageLayout({
     isMobile,
     title,
+    centerTitle,
     children,
 }: Props) {
     const history = useHistory();
@@ -38,8 +40,8 @@ export default function StandardPageLayout({
                         display: "flex",
                         width: "100%",
                         alignItems: "center",
-                        justifyContent: "center",
-                        paddingTop: isMobile ? 30 : 90,
+                        justifyContent: centerTitle ? "flex-start" : "center",
+                        paddingTop: isMobile ? 60 : 90,
                     }}
                 >
                     <h1 style={{ justifySelf: "center", fontSize: "3rem" }}>

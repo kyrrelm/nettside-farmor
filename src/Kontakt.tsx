@@ -7,7 +7,7 @@ export default function Kontakt() {
     const [width] = useWindowSize();
     const isMobile = width <= 600;
     return (
-        <StandardPageLayout isMobile={isMobile} title={"Kontakt"}>
+        <StandardPageLayout isMobile={isMobile} title={"Kontakt"} centerTitle>
             <Informasjon
                 linjer={[
                     "siv.ark Anne Grete Hansteen",

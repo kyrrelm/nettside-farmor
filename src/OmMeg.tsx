@@ -7,7 +7,7 @@ export default function OmMeg() {
     const [width] = useWindowSize();
     const isMobile = width <= 600;
     return (
-        <StandardPageLayout isMobile={isMobile} title={"Om meg"}>
+        <StandardPageLayout isMobile={isMobile} title={"Om meg"} centerTitle>
             <Informasjon
                 linjer={[
                     "AEPOS arkitekter og planleggere AS ble stiftet 1989.",
