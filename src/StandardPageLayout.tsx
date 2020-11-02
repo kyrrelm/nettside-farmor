@@ -30,8 +30,8 @@ export default function StandardPageLayout({
                     display: "flex",
                     flexDirection: "column",
                     maxWidth: 935,
-                    marginLeft: "3rem",
-                    marginRight: "3rem",
+                    marginLeft: "6rem",
+                    marginRight: "6rem",
                 }}
             >
                 <div

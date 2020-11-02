@@ -18,6 +18,7 @@ export default function Informasjon({ linjer }: Props) {
 const styles: { [name: string]: CSSProperties } = {
     informasjon: {
         marginTop: '3rem',
+        maxWidth: '40rem'
     },
     p: { margin: 0 },
 };

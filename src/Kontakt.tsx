@@ -11,9 +11,8 @@ export default function Kontakt() {
             <Informasjon
                 linjer={[
                     "siv.ark Anne Grete Hansteen",
-                    "Gimleveien 30",
-                    "1358 Jar",
-                    "Tlf.: +4767531783",
+                    "Gimleveien 30 1358 Jar",
+                    "Tlf: +4767531783",
                     "Mobil: +4791532632",
                     "E-post: ahanstee@online.no",
                 ]}
