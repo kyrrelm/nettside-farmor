@@ -28,3 +28,12 @@ body {
 div .MuiBackdrop-root {
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    text-decoration: underline;
+}
