@@ -16,16 +16,17 @@ export default function Forside() {
             }}
         >
             <div
+                className={'forside-tittel'}
                 style={{
                     display: "flex",
                     flexDirection: "column",
                     textAlign: "center",
                 }}
             >
-                <h1 style={{ fontSize: "4rem", marginBottom: "-1rem" }}>
+                <h1 style={{ fontSize: "4em", marginBottom: "-1rem" }}>
                     Anne Grete Hansteen
                 </h1>
-                <h2 style={{ fontSize: "1.8rem", fontWeight: 200 }}>
+                <h2 style={{ fontSize: "1.8em", fontWeight: 200 }}>
                     Sivilarkitekt
                 </h2>
                 <div style={{ marginTop: "8rem" }}>

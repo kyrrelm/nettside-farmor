@@ -5,7 +5,10 @@
 }
 
 @media screen and ( max-width: 600px) {
-    html {
+    html{
+        font-size: 12px;
+    }
+    .forside-tittel {
         font-size: 8px;
     }
 }
