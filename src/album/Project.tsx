@@ -127,6 +127,7 @@ function renderImageContainer(index: number, url?: string, handleClick?: (index:
                     lineHeight: 0,
                     boxShadow:
                         "0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
+                    cursor: "pointer"
                 }}
             >
                 {url && <img alt={url} src={url} style={styles.img} />}
