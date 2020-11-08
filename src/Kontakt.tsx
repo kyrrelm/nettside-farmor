@@ -11,6 +11,7 @@ export default function Kontakt() {
     return (
         <StandardPageLayout isMobile={isMobile} title={"Kontakt"} centerTitle>
             <Informasjon
+                isMobil={isMobile}
                 linjer={[
                     "siv.ark Anne Grete Hansteen",
                     "Gimleveien 30, 1358 Jar",

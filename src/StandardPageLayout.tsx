@@ -30,8 +30,8 @@ export default function StandardPageLayout({
                     display: "flex",
                     flexDirection: "column",
                     maxWidth: 935,
-                    marginLeft: "4rem",
-                    marginRight: "4rem",
+                    marginLeft: "2rem",
+                    marginRight: "2rem",
                 }}
             >
                 <div
@@ -41,7 +41,7 @@ export default function StandardPageLayout({
                         width: "100%",
                         alignItems: "center",
                         justifyContent: centerTitle ? "flex-start" : "center",
-                        paddingTop: isMobile ? 60 : 90,
+                        paddingTop: isMobile ? 90 : 140,
                     }}
                 >
                     <h1 style={{ justifySelf: "center", fontSize: "3rem" }}>
@@ -55,8 +55,8 @@ export default function StandardPageLayout({
                 style={{
                     cursor: "pointer",
                     position: "absolute",
-                    left: "3rem",
-                    top: "3rem",
+                    left: isMobile ? "2rem" : "3rem",
+                    top: isMobile ? "2rem" : "3rem",
                 }}
             >
                 <ArrowBackIcon fontSize={"large"} />

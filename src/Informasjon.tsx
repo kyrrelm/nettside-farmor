@@ -2,13 +2,24 @@ import React, { CSSProperties, ReactNode } from "react";
 
 interface Props {
     linjer: string[];
+    isMobil: boolean;
     lenke?: { tekst: string; path: string };
     children?: ReactNode | ReactNode[];
 }
 
-export default function Informasjon({ linjer, lenke, children }: Props) {
+export default function Informasjon({
+    linjer,
+    isMobil,
+    lenke,
+    children,
+}: Props) {
     return (
-        <div style={styles.informasjon}>
+        <div
+            style={{
+                marginTop: isMobil ? "0" : "2rem",
+                maxWidth: "40rem",
+            }}
+        >
             {linjer.map((linje) => (
                 <p style={styles.p}>
                     {linje}
@@ -17,7 +28,7 @@ export default function Informasjon({ linjer, lenke, children }: Props) {
                             {lenke.tekst}
                         </a>
                     )}
-                    {lenke && '.'}
+                    {lenke && "."}
                 </p>
             ))}
             {children}
@@ -26,10 +37,6 @@ export default function Informasjon({ linjer, lenke, children }: Props) {
 }
 
 const styles: { [name: string]: CSSProperties } = {
-    informasjon: {
-        marginTop: "3rem",
-        maxWidth: "40rem",
-    },
     p: { margin: 0 },
     lenke: { textDecoration: "underline" },
 };

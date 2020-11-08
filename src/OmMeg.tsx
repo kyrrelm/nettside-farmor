@@ -9,6 +9,7 @@ export default function OmMeg() {
     return (
         <StandardPageLayout isMobile={isMobile} title={"Om meg"} centerTitle>
             <Informasjon
+                isMobil={isMobile}
                 linjer={[
                     "Tidligere AEPOS arkitekter og planleggere AS er blitt til Arkitektkontoret Anne Grete Hansteen. " +
                     "Arkitekt-praksisen er fortsatt konsentrert om boliger og boliganlegg i Oslo, " +
