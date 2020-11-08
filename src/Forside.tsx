@@ -35,7 +35,7 @@ export default function Forside() {
                             paddingRight: "0.5rem",
                             fontSize: "1.2rem",
                         }}
-                        to="/album"
+                        to="/prosjekter"
                     >
                         Prosjekter
                     </Link>

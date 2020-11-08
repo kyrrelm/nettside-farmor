@@ -10,8 +10,12 @@ export default function OmMeg() {
         <StandardPageLayout isMobile={isMobile} title={"Om meg"} centerTitle>
             <Informasjon
                 linjer={[
-                    "AEPOS arkitekter og planleggere AS ble stiftet 1989. Arkitektpraksisen har vært konsentrert om boliger og boliganlegg i Oslo, Bærum og Asker med spennvidde fra regulering til detaljprosjektnivå. Eier og faglig leder/ansatt er sivilarktekt Anne Grete Hansteen. Kontoret holder til i Gimleveien 30 på Jar.",
+                    "Tidligere AEPOS arkitekter og planleggere AS er blitt til Arkitektkontoret Anne Grete Hansteen. " +
+                    "Arkitekt-praksisen er fortsatt konsentrert om boliger og boliganlegg i Oslo, " +
+                    "Bærum og Asker med spennvidde fra regulering, byggemelding til detaljprosjekt-nivå. " +
+                    "Viser til referanser som er tidligere realiserte prosjekter som kan sees ",
                 ]}
+                lenke={{tekst:'her', path:'/prosjekter'}}
             />
         </StandardPageLayout>
     );

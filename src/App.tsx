@@ -12,7 +12,7 @@ export default function App() {
                 <Route exact path="/">
                     <Forside/>
                 </Route>
-                <Route path="/album">
+                <Route path="/prosjekter">
                     <Album/>
                 </Route>
                 <Route path="/om-meg">
