@@ -126,7 +126,7 @@ function renderImageContainer(index: number, url?: string, handleClick?: (index:
                     maxWidth: 700,
                     lineHeight: 0,
                     boxShadow:
-                        "0 30px 60px -10px rgba(0,0,0,0.2), 0 18px 36px -18px rgba(0,0,0,0.22)",
+                        "0 30px 60px -10px rgba(0,0,0,0.12), 0 18px 36px -18px rgba(0,0,0,0.15)",
                     cursor: "pointer"
                 }}
             >
