@@ -1,0 +1,235 @@
+import React, {ReactNode, useEffect, useState} from "react";
+import {grey} from "@material-ui/core/colors";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {duration} from "@material-ui/core/styles/transitions";
+import Fab from "@material-ui/core/Fab";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
+import CloseIcon from "@material-ui/icons/Close";
+import Modal from "@material-ui/core/Modal";
+import Fade from "@material-ui/core/Fade";
+import Backdrop from "@material-ui/core/Backdrop";
+// @ts-ignore
+import Dots from "material-ui-dots";
+import classNames from "classnames";
+import SwipableCarouselView from "./SwipableCarouselView";
+import {modulo} from "./util";
+
+const styles = {
+    root: {
+        "& > *:focus": {
+            outline: "none",
+        },
+    },
+    content: {
+        width: "60%",
+        maxWidth: 700,
+        height: "calc(100% - 96px)",
+        maxHeight: 600,
+        margin: "-16px auto 0",
+        position: "relative",
+        top: "50%",
+        transform: "translateY(-50%)",
+    },
+    contentMobile: {
+        width: "100%",
+        height: "100%",
+        maxWidth: "initial",
+        maxHeight: "initial",
+        margin: 0,
+        top: 0,
+        transform: "none",
+
+        "& > $carouselWrapper": {
+            borderRadius: 0,
+        },
+    },
+    circleIcon: {
+        width: 48,
+        height: 48,
+    },
+    arrowLeft: {
+        position: "absolute",
+        top: "calc((100% - 96px) / 2 + 24px)",
+        left: -96,
+    },
+    arrowRight: {
+        position: "absolute",
+        top: "calc((100% - 96px) / 2 + 24px)",
+        right: -96,
+    },
+    close: {
+        position: "absolute",
+        top: 40,
+        right: 40,
+    },
+    closeMobile: {
+        top: 10,
+        right: 10,
+    },
+    arrowIcon: {
+        color: grey[700],
+    },
+    closeIcon: {
+        color: grey[700],
+    },
+    slide: {
+        width: "100%",
+        height: "100%",
+    },
+};
+
+function RotatingCarousel({
+    mobile,
+    startIndexOrClosed,
+    onClose,
+    children,
+    classes,
+}: {
+    autoplay: boolean;
+    mobile: boolean;
+    startIndexOrClosed: number | undefined;
+    hideArrows: boolean;
+    onClose: () => void;
+    children: ReactNode | ReactNode[];
+    classes: any;
+}) {
+    const [slideIndex, setSlideIndex] = useState<number>(0);
+
+    useEffect(() => {
+        console.log("startIndexOrClosed", startIndexOrClosed);
+        if (
+            startIndexOrClosed !== undefined &&
+            startIndexOrClosed !== slideIndex
+        ) {
+            setSlideIndex(startIndexOrClosed);
+        }
+    }, [startIndexOrClosed]);
+
+    const isOpen = startIndexOrClosed !== undefined;
+
+    function handleContentClick(e: any) {
+        e.stopPropagation() || e.preventDefault();
+    }
+
+    function decreaseIndex() {
+        setSlideIndex(slideIndex - 1);
+    }
+
+    function increaseIndex() {
+        setSlideIndex(slideIndex + 1);
+    }
+
+    const transitionDuration = {
+        enter: duration.enteringScreen,
+        exit: duration.leavingScreen,
+    };
+    const numberOfChildren = Array.isArray(children) ? children.length : 1;
+    const hasMultipleChildren = numberOfChildren > 1;
+
+    const carousel = (
+        <SwipableCarouselView
+            index={slideIndex}
+            onChangeIndex={setSlideIndex}
+            slideClassName={classes.slide}
+            containerStyle={{ alignItems: "center" }}
+        >
+            {children}
+        </SwipableCarouselView>
+    );
+
+    return (
+        <Modal
+            className={classNames(classes.root)}
+            open={isOpen}
+            onClose={onClose}
+            BackdropComponent={Backdrop}
+            BackdropProps={{ transitionDuration }}
+        >
+            <Fade appear in={isOpen} timeout={transitionDuration}>
+                <div
+                    style={{
+                        display: "flex",
+                        width: "100%",
+                        height: "100%",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        flexDirection: "column",
+                    }}
+                    onClick={onClose}
+                >
+                    <div
+                        onClick={handleContentClick}
+                        style={{
+                            width: mobile ? "100%" : "60%",
+                            maxWidth: 700,
+                            position: "relative",
+                        }}
+                    >
+                        {carousel}
+                        {renderArrows()}
+                    </div>
+                    {renderClose()}
+                    {renderFooter()}
+                </div>
+            </Fade>
+        </Modal>
+    );
+
+    function renderFooter() {
+        if (!hasMultipleChildren) {
+            return null;
+        }
+        return (
+            <div style={{ margin: "0 auto" }} onClick={handleContentClick}>
+                <Dots
+                    count={numberOfChildren}
+                    index={modulo(slideIndex, numberOfChildren)}
+                    onDotClick={setSlideIndex}
+                />
+            </div>
+        );
+    }
+
+    function renderClose() {
+        return (
+            <Fab
+                className={classNames(classes.circleIcon, classes.close, mobile && classes.closeMobile)}
+                onClick={onClose}
+            >
+                <CloseIcon className={classes.arrowIcon} />
+            </Fab>
+        );
+    }
+
+    function renderArrows() {
+        if (mobile || !hasMultipleChildren) {
+            return null;
+        }
+        return (
+            <div>
+                <Fab
+                    className={classNames(
+                        classes.circleIcon,
+                        classes.arrowLeft
+                    )}
+                    onClick={decreaseIndex}
+                >
+                    <ArrowBackIcon className={classes.arrowIcon} />
+                </Fab>
+                <Fab
+                    className={classNames(
+                        classes.circleIcon,
+                        classes.arrowRight
+                    )}
+                    onClick={increaseIndex}
+                >
+                    <ArrowForwardIcon className={classes.arrowIcon} />
+                </Fab>
+            </div>
+        );
+    }
+}
+
+// @ts-ignore
+export default withStyles(styles)(RotatingCarousel);

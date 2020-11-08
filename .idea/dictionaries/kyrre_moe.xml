@@ -2,6 +2,11 @@
   <dictionary name="kyrre.moe">
     <words>
       <w>bilde</w>
+      <w>informasjon</w>
+      <w>kontakt</w>
+      <w>linje</w>
+      <w>linjer</w>
+      <w>swipable</w>
     </words>
   </dictionary>
 </component>
