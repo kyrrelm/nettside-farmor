@@ -39,6 +39,7 @@ import eneboligJar2 from "../img/EneboligJar/2EneboligJar.jpeg";
 import eneboligJar3 from "../img/EneboligJar/3EneboligJar.jpeg";
 import eneboligJar4 from "../img/EneboligJar/4EneboligJar.jpeg";
 import eneboligJar5 from "../img/EneboligJar/5EneboligJar.jpeg";
+import eneboligJar6 from "../img/EneboligJar/6EneboligJar.jpg";
 import enebolig2Jar1 from "../img/EneboligJar2/2_1EneboligJar.jpeg";
 import enebolig2Jar2 from "../img/EneboligJar2/2_2EneboligJar.jpeg";
 import enebolig2Jar3 from "../img/EneboligJar2/2_3EneboligJar.jpeg";
@@ -108,6 +109,7 @@ export default function Album() {
         eneboligJar3,
         eneboligJar4,
         eneboligJar5,
+        eneboligJar6,
     ];
     const imagesEneboligJar2 = [enebolig2Jar1, enebolig2Jar2, enebolig2Jar3];
     const imagesEneboligJar3 = [enebolig3Jar1, enebolig3Jar2, enebolig3Jar3];
@@ -133,108 +135,126 @@ export default function Album() {
                 width={width}
                 isMobile={isMobile}
                 navn={"Boliganlegg Årvoll"}
+                adresse={"Årvollveien 33"}
                 imageUrls={imagesArvoll}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Barnehage Blindern"}
+                adresse={"Gaustadalléen 13"}
                 imageUrls={imagesBlindern}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
-                navn={"Boliganlegg Bestum, Bakkeveien 1"}
+                navn={"Boliganlegg Bestum"}
+                adresse={"Bakkeveien 1"}
                 imageUrls={imagesBestumBakkeveien1}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
-                navn={"Boliganlegg Bestum, Bakkeveien 3-9"}
+                navn={"Boliganlegg Bestum"}
+                adresse={"Bakkeveien 3-9"}
                 imageUrls={imagesBestumBakkeveien3_9}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Boliganlegg Furulund"}
+                adresse={"Furulundveien 13"}
                 imageUrls={imagesFurulund}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Boliganlegg Lilleaker"}
+                adresse={"Lilleakerveien 37"}
                 imageUrls={imagesLilleaker}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Boliganlegg Nordstrand"}
+                adresse={"Solveien 138CD"}
                 imageUrls={imagesNordstrand}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
-                navn={"Boliganlegg Nordstrand 2"}
+                navn={"Boliganlegg Nordstrand"}
+                adresse={"Birgitte Hammers vei 1b"}
                 imageUrls={imagesNordstrand2}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Boliganlegg Sandaker"}
+                adresse={"Sandakerveien 36A-42"}
                 imageUrls={imagesBoliganleggSandaker}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Enebolig Billingstad"}
+                adresse={"Billingstadveien 13B"}
                 imageUrls={imagesEneboligBillingstad}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Enebolig Gjettum"}
+                adresse={"Sykehusveien 15-17"}
                 imageUrls={imagesEneboligGjettum}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Enebolig Jar"}
+                adresse={"Gimleveien 30"}
                 imageUrls={imagesEneboligJar}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
-                navn={"Enebolig Jar 2"}
-                imageUrls={imagesEneboligJar2}
-            />
-            <Project
-                width={width}
-                isMobile={isMobile}
-                navn={"Enebolig Jar 3"}
+                navn={"Enebolig Jar"}
+                adresse={"Bjerkelundsveien 51C"}
                 imageUrls={imagesEneboligJar3}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
+                navn={"Enebolig Jar"}
+                adresse={"Voll Terrasse 35B"}
+                imageUrls={imagesEneboligJar2}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
                 navn={"Firemannsbolig Nordberg"}
+                adresse={"Brattelia 7"}
                 imageUrls={imagesFiremannsboligNordberg}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Tomannsbolig Blommenholm"}
+                adresse={"Stasjonsveien 87-89"}
                 imageUrls={imagesTomannsboligBlommenholm}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Tomannsbolig Sandvika"}
+                adresse={"Kampebråten 5"}
                 imageUrls={imagesTomannsboligSandvika}
             />
             <Project
                 width={width}
                 isMobile={isMobile}
                 navn={"Tomannsbolig Ullern"}
+                adresse={"Slalåmveien 10-12"}
                 imageUrls={imagesTomannsboligUllern}
             />
         </StandardPageLayout>

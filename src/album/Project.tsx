@@ -9,6 +9,7 @@ interface Props {
     width: number;
     isMobile: boolean;
     navn: string;
+    adresse: string;
     imageUrls: string[];
 }
 

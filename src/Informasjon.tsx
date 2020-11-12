@@ -37,6 +37,11 @@ export default function Informasjon({
 }
 
 const styles: { [name: string]: CSSProperties } = {
-    p: { margin: 0 },
-    lenke: { textDecoration: "underline" },
+    p: {
+        margin: 0,
+        fontSize: '1.3rem'
+    },
+    lenke: {
+        textDecoration: "underline",
+    },
 };

@@ -15,8 +15,7 @@ export default function Kontakt() {
                 linjer={[
                     "siv.ark Anne Grete Hansteen",
                     "Gimleveien 30, 1358 Jar",
-                    "Tlf: +4767531783",
-                    "Mobil: +4791532632",
+                    "Tlf: +47 915 32 632",
                 ]}
             >
                 <p style={styles.p}>E-post: <Obfuscate email={'anne.grete.hansteen@gmail.com'}/> </p>
@@ -27,5 +26,8 @@ export default function Kontakt() {
 
 
 const styles: { [name: string]: CSSProperties } = {
-    p: { margin: 0 },
+    p: {
+        margin: 0,
+        fontSize: '1.3rem'
+    },
 };
