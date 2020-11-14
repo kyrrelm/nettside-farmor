@@ -3,7 +3,7 @@ import RotatingCarouselModal from "../carousel/RotatingCarouselModal";
 
 const COLUMNS = 3;
 
-let STANDARD_SPACING = 40;
+let STANDARD_SPACING = 2;
 
 interface Props {
     width: number;
@@ -13,11 +13,11 @@ interface Props {
     imageUrls: string[];
 }
 
-export default function Project({ width, isMobile, navn, imageUrls, }: Props) {
+export default function Project({ width, isMobile, navn, imageUrls, adresse}: Props) {
     if (width < 800) {
-        STANDARD_SPACING = 10;
+        STANDARD_SPACING = 0.8;
     } else {
-        STANDARD_SPACING = 40;
+        STANDARD_SPACING = 2;
     }
 
     const [startIndexOrClosed, setStartIndexOrClosed] = useState<number | undefined>(undefined);
@@ -32,7 +32,7 @@ export default function Project({ width, isMobile, navn, imageUrls, }: Props) {
 
     return (
         <div>
-            {renderHeader(navn)}
+            {renderHeader(navn, adresse)}
             {renderImages(imageUrls, handleClick)}
             <RotatingCarouselModal
                 imageUrls={imageUrls}
@@ -44,18 +44,17 @@ export default function Project({ width, isMobile, navn, imageUrls, }: Props) {
     );
 }
 
-function renderHeader(navn: string) {
+function renderHeader(navn: string, adresse: string) {
     return (
-        <header
+        <div
             style={{
-                display: "flex",
-                justifyContent: "space-between",
-                marginBottom: STANDARD_SPACING/8,
-                marginTop: STANDARD_SPACING,
+                marginTop: `${STANDARD_SPACING}rem`,
+                marginBottom: `${STANDARD_SPACING*4 / 6}rem`,
             }}
         >
-            <h2 style={{ fontSize: "1.8rem", fontWeight: 200 }}>{navn}</h2>
-        </header>
+            <h2 style={{ fontSize: "1.8rem", marginBottom: "-0.1rem", fontWeight: 200 }}>{navn}</h2>
+            <span style={{display:"block" }}>{adresse}</span>
+        </div>
     );
 }
 
@@ -81,9 +80,9 @@ function renderRow(localImageUrls: string[], handleClick: (index: number) => voi
             key={rowIndex}
             style={{
                 display: "flex",
-                marginBottom: STANDARD_SPACING,
-                marginLeft: -STANDARD_SPACING / 2,
-                marginRight: -STANDARD_SPACING / 2,
+                marginBottom: `${STANDARD_SPACING}rem`,
+                marginLeft: `${-STANDARD_SPACING / 2}rem`,
+                marginRight: `${-STANDARD_SPACING / 2}rem`,
             }}
         >
             {localImageUrls.map((url, columnIndex) =>
@@ -104,8 +103,8 @@ function renderImageContainer(index: number, url?: string, handleClick?: (index:
                 style={{
                     flexBasis: "0%",
                     flexGrow: 1,
-                    marginLeft: STANDARD_SPACING / 2,
-                    marginRight: STANDARD_SPACING / 2,
+                    marginLeft: `${STANDARD_SPACING / 2}rem`,
+                    marginRight: `${STANDARD_SPACING / 2}rem`,
                 }}
             ></div>
         );
@@ -116,8 +115,8 @@ function renderImageContainer(index: number, url?: string, handleClick?: (index:
             style={{
                 flexBasis: "0%",
                 flexGrow: 1,
-                marginLeft: STANDARD_SPACING / 2,
-                marginRight: STANDARD_SPACING / 2,
+                marginLeft: `${STANDARD_SPACING / 2}rem`,
+                marginRight: `${STANDARD_SPACING / 2}rem`,
             }}
         >
             <div
