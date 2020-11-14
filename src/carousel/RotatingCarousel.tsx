@@ -1,7 +1,7 @@
-import React, {ReactNode, useEffect, useState} from "react";
-import {grey} from "@material-ui/core/colors";
+import React, { CSSProperties, ReactNode, useEffect, useState } from "react";
+import { grey } from "@material-ui/core/colors";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {duration} from "@material-ui/core/styles/transitions";
+import { duration } from "@material-ui/core/styles/transitions";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
@@ -13,7 +13,8 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Dots from "material-ui-dots";
 import classNames from "classnames";
 import SwipableCarouselView from "./SwipableCarouselView";
-import {modulo} from "./util";
+import { modulo } from "./util";
+import ButtonTransparent from "../ButtonTransparent";
 
 const styles = {
     root: {
@@ -44,31 +45,8 @@ const styles = {
             borderRadius: 0,
         },
     },
-    circleIcon: {
-        width: 48,
-        height: 48,
-    },
-    arrowLeft: {
-        position: "absolute",
-        top: "calc((100% - 96px) / 2 + 24px)",
-        left: -96,
-    },
-    arrowRight: {
-        position: "absolute",
-        top: "calc((100% - 96px) / 2 + 24px)",
-        right: -96,
-    },
-    close: {
-        position: "absolute",
-        top: 40,
-        right: 40,
-    },
-    closeMobile: {
-        top: 10,
-        right: 10,
-    },
     arrowIcon: {
-        color: grey[700],
+        color: "#e6e6e6",
     },
     closeIcon: {
         color: grey[700],
@@ -192,13 +170,19 @@ function RotatingCarousel({
     }
 
     function renderClose() {
+        const styleClose = mobile
+            ? inlineStyles.closeMobile
+            : inlineStyles.close;
         return (
-            <Fab
-                className={classNames(classes.circleIcon, classes.close, mobile && classes.closeMobile)}
+            <ButtonTransparent
+                style={{
+                    ...inlineStyles.button,
+                    ...styleClose,
+                }}
                 onClick={onClose}
             >
-                <CloseIcon className={classes.arrowIcon} />
-            </Fab>
+                <CloseIcon fontSize={"inherit"} className={classes.arrowIcon} />
+            </ButtonTransparent>
         );
     }
 
@@ -208,28 +192,62 @@ function RotatingCarousel({
         }
         return (
             <div>
-                <Fab
-                    className={classNames(
-                        classes.circleIcon,
-                        classes.arrowLeft
-                    )}
+                <ButtonTransparent
+                    style={{
+                        ...inlineStyles.button,
+                        ...inlineStyles.arrowLeft,
+                    }}
                     onClick={decreaseIndex}
                 >
-                    <ArrowBackIcon className={classes.arrowIcon} />
-                </Fab>
-                <Fab
-                    className={classNames(
-                        classes.circleIcon,
-                        classes.arrowRight
-                    )}
+                    <ArrowBackIcon
+                        fontSize={"inherit"}
+                        className={classes.arrowIcon}
+                    />
+                </ButtonTransparent>
+                <ButtonTransparent
+                    style={{
+                        ...inlineStyles.button,
+                        ...inlineStyles.arrowRight,
+                    }}
                     onClick={increaseIndex}
                 >
-                    <ArrowForwardIcon className={classes.arrowIcon} />
-                </Fab>
+                    <ArrowForwardIcon
+                        fontSize={"inherit"}
+                        className={classes.arrowIcon}
+                    />
+                </ButtonTransparent>
             </div>
         );
     }
 }
+
+const inlineStyles: { [name: string]: CSSProperties } = {
+    button: {
+        width: "4rem",
+        height: "4rem",
+        fontSize: "3.5rem",
+    },
+    arrowLeft: {
+        position: "absolute",
+        top: "calc((100% - 96px) / 2 + 24px)",
+        left: -96,
+    },
+    arrowRight: {
+        position: "absolute",
+        top: "calc((100% - 96px) / 2 + 24px)",
+        right: -96,
+    },
+    close: {
+        position: "absolute",
+        top: 40,
+        left: 40,
+    },
+    closeMobile: {
+        position: "absolute",
+        top: 10,
+        left: 10,
+    },
+};
 
 // @ts-ignore
 export default withStyles(styles)(RotatingCarousel);
