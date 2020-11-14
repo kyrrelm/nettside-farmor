@@ -130,7 +130,7 @@ export default function Album() {
     ];
 
     return (
-        <StandardPageLayout isMobile={isMobile} title={"Prosjekter"}>
+        <StandardPageLayout isMobile={isMobile} width={width} title={"Prosjekter"}>
             <Project
                 width={width}
                 isMobile={isMobile}

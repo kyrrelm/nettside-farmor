@@ -9,7 +9,7 @@ export default function Kontakt() {
     const [width] = useWindowSize();
     const isMobile = width < 600;
     return (
-        <StandardPageLayout isMobile={isMobile} title={"Kontakt"} centerTitle>
+        <StandardPageLayout isMobile={isMobile} width={width} title={"Kontakt"} centerTitle>
             <Informasjon
                 isMobil={isMobile}
                 linjer={[

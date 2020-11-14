@@ -1,9 +1,11 @@
 import React, { ReactNode } from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useHistory } from "react-router-dom";
+import ButtonTransparent from "./ButtonTransparent";
 
 interface Props {
     isMobile: boolean;
+    width: number;
     title: string;
     centerTitle?: boolean;
     children: ReactNode | ReactNode[];
@@ -11,6 +13,7 @@ interface Props {
 
 export default function StandardPageLayout({
     isMobile,
+    width,
     title,
     centerTitle,
     children,
@@ -50,17 +53,17 @@ export default function StandardPageLayout({
                 </div>
                 {children}
             </div>
-            <div
+            <ButtonTransparent
                 onClick={() => history.push("/")}
                 style={{
                     cursor: "pointer",
                     position: "absolute",
-                    left: isMobile ? "2rem" : "3rem",
-                    top: isMobile ? "2rem" : "3rem",
+                    left: width <= 1040 ? "2rem" : "3rem",
+                    top: width <= 1040 ? "2rem" : "3rem",
                 }}
             >
                 <ArrowBackIcon fontSize={"large"} />
-            </div>
+            </ButtonTransparent>
         </div>
     );
 }

@@ -7,7 +7,7 @@ export default function OmMeg() {
     const [width] = useWindowSize();
     const isMobile = width < 600;
     return (
-        <StandardPageLayout isMobile={isMobile} title={"Om meg"} centerTitle>
+        <StandardPageLayout isMobile={isMobile} width={width} title={"Om meg"} centerTitle>
             <Informasjon
                 isMobil={isMobile}
                 linjer={[
