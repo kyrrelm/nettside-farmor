@@ -1,11 +1,12 @@
 @font-face {
     font-family: "Poppins";
     font-weight: 200;
-    src: local("Poppins"), url(./fonts/Poppins-ExtraLight.ttf) format("truetype");
+    src: local("Poppins"),
+        url(./fonts/Poppins-ExtraLight.ttf) format("truetype");
 }
 
-@media screen and ( max-width: 600px) {
-    html{
+@media screen and (max-width: 600px) {
+    html {
         font-size: 12px;
     }
     .forside-tittel {
@@ -13,7 +14,7 @@
     }
 }
 
-@media screen and ( min-width: 600px) and (max-width: 900px) {
+@media screen and (min-width: 600px) and (max-width: 900px) {
     html {
         font-size: 12px;
     }
@@ -21,8 +22,8 @@
 
 body {
     margin: 0;
-    font-family: "Poppins", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
+    font-family: "Poppins", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #fafafa;
@@ -43,4 +44,21 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+.button-light {
+    color: #e6e6e6;
+}
+
+.button-light:active {
+    color: #c8c8c8;
+}
+
+
+.button-dark {
+    color: #000000;
+}
+
+.button-dark:hover {
+    color: #1e1e1e;
 }

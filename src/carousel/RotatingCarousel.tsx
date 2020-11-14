@@ -46,7 +46,7 @@ const styles = {
         },
     },
     arrowIcon: {
-        color: "#e6e6e6",
+        color: "inherit",
     },
     closeIcon: {
         color: grey[700],
@@ -175,6 +175,7 @@ function RotatingCarousel({
             : inlineStyles.close;
         return (
             <ButtonTransparent
+                light
                 style={{
                     ...inlineStyles.button,
                     ...styleClose,
@@ -193,6 +194,7 @@ function RotatingCarousel({
         return (
             <div>
                 <ButtonTransparent
+                    light
                     style={{
                         ...inlineStyles.button,
                         ...inlineStyles.arrowLeft,
@@ -205,6 +207,7 @@ function RotatingCarousel({
                     />
                 </ButtonTransparent>
                 <ButtonTransparent
+                    light
                     style={{
                         ...inlineStyles.button,
                         ...inlineStyles.arrowRight,
