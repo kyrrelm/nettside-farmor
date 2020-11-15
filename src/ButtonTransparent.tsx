@@ -27,6 +27,8 @@ export default function ButtonTransparent({
 const styles: { [name: string]: CSSProperties } = {
     button: {
         padding: 0,
+        marginLeft: '-4px',
+        marginRight: '-4px',
         backgroundColor: "transparent",
         backgroundRepeat: "no-repeat",
         border: "none",
