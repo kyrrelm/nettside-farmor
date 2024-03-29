@@ -32,6 +32,7 @@ import boliganleggSandaker2 from "../img/BoliganleggSandakerveien/2boliganleggSa
 import boliganleggSandaker3 from "../img/BoliganleggSandakerveien/3boliganleggSandaker.jpeg";
 import boliganleggSandaker4 from "../img/BoliganleggSandakerveien/4boliganleggSandaker.jpeg";
 import eneboligBillingstad from "../img/EneboligBillingstad/B13.jpg";
+import eneboligBillingstad2 from "../img/EneboligBillingstad/B13_2.jpg";
 import eneboligGjettum1 from "../img/EneboligGjettum/1eneboligGjettum.jpeg";
 import eneboligGjettum2 from "../img/EneboligGjettum/2eneboligGjettum.jpeg";
 import eneboligJar1 from "../img/EneboligJar/1EneboligJar.jpeg";
@@ -46,15 +47,18 @@ import enebolig2Jar3 from "../img/EneboligJar2/2_3EneboligJar.jpeg";
 import enebolig3Jar1 from "../img/EneboligJar3/3_1EneboligJar.jpeg";
 import enebolig3Jar2 from "../img/EneboligJar3/3_2EneboligJar.jpeg";
 import enebolig3Jar3 from "../img/EneboligJar3/3_3EneboligJar.jpeg";
+import enebolig4Jar1 from "../img/EneboligJar4/Gimleveien23.jpg";
 import firemannsboligNordberg1 from "../img/FiremannsboligNordberg/1FiremannsboligNordberg.jpeg";
 import firemannsboligNordberg2 from "../img/FiremannsboligNordberg/2FiremannsboligNordberg.jpeg";
 import tomannsboligBlommenholm1 from "../img/TomannsboligBlommenholm/1TomannsboligBlommenholm.jpg";
 import tomannsboligBlommenholm2 from "../img/TomannsboligBlommenholm/2TomannsboligBlommenholm.jpg";
-import tomannsboligSandvika from "../img/TomannsboligSandvika/TomannsboligSandvika.jpg";
+import tomannsboligSandvika1 from "../img/TomannsboligSandvika/TomannsboligSandvika.jpg";
+import tomannsboligSandvika2 from "../img/TomannsboligSandvika/TomannsboligSandvika2.jpg";
 import tomannsboligUllern1 from "../img/TomannsboligUllern/1TomannsboligerUllern.jpeg";
 import tomannsboligUllern2 from "../img/TomannsboligUllern/2TomannsboligerUllern.jpeg";
 import tomannsboligUllern3 from "../img/TomannsboligUllern/3TomannsboligerUllern.jpeg";
 import tomannsboligUllern4 from "../img/TomannsboligUllern/4TomannsboligerUllern.jpeg";
+import eneboligSlependen1 from "../img/EneboligSlependen/Gys1.jpg";
 import {useHistory} from "react-router-dom";
 import {useWindowSize} from "../carousel/util";
 import StandardPageLayout from "../StandardPageLayout";
@@ -101,7 +105,7 @@ export default function Album() {
         boliganleggSandaker3,
         boliganleggSandaker4,
     ];
-    const imagesEneboligBillingstad = [eneboligBillingstad];
+    const imagesEneboligBillingstad = [eneboligBillingstad2, eneboligBillingstad];
     const imagesEneboligGjettum = [eneboligGjettum1, eneboligGjettum2];
     const imagesEneboligJar = [
         eneboligJar1,
@@ -113,6 +117,8 @@ export default function Album() {
     ];
     const imagesEneboligJar2 = [enebolig2Jar1, enebolig2Jar2, enebolig2Jar3];
     const imagesEneboligJar3 = [enebolig3Jar1, enebolig3Jar2, enebolig3Jar3];
+    const imagesEneboligJar4 = [enebolig4Jar1];
+    const imagesEneboligSlependen = [eneboligSlependen1];
     const imagesFiremannsboligNordberg = [
         firemannsboligNordberg1,
         firemannsboligNordberg2,
@@ -121,7 +127,7 @@ export default function Album() {
         tomannsboligBlommenholm1,
         tomannsboligBlommenholm2,
     ];
-    const imagesTomannsboligSandvika = [tomannsboligSandvika];
+    const imagesTomannsboligSandvika = [tomannsboligSandvika1, tomannsboligSandvika2];
     const imagesTomannsboligUllern = [
         tomannsboligUllern1,
         tomannsboligUllern2,
@@ -232,6 +238,13 @@ export default function Album() {
             <Project
                 width={width}
                 isMobile={isMobile}
+                navn={"Enebolig Jar"}
+                adresse={"Gimleveien 23"}
+                imageUrls={imagesEneboligJar4}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
                 navn={"Firemannsbolig Nordberg"}
                 adresse={"Brattelia 7"}
                 imageUrls={imagesFiremannsboligNordberg}
@@ -256,6 +269,13 @@ export default function Album() {
                 navn={"Tomannsbolig Ullern"}
                 adresse={"Slalåmveien 10-12"}
                 imageUrls={imagesTomannsboligUllern}
+            />
+            <Project
+                width={width}
+                isMobile={isMobile}
+                navn={"Enebolig Slependen"}
+                adresse={"Gyssestadkollen 64"}
+                imageUrls={imagesEneboligSlependen}
             />
         </StandardPageLayout>
     );
